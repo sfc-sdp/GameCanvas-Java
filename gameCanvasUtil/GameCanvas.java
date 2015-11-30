@@ -1,6 +1,6 @@
 package gameCanvasUtil;
 
-import java.awt.*; // ƒOƒ‰ƒtƒBƒbƒNƒXƒNƒ‰ƒX‚Ì“Ç‚İ‚İ
+import java.awt.*; // ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ã‚¹ã‚¯ãƒ©ã‚¹ã®èª­ã¿è¾¼ã¿
 import javax.swing.JFrame;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
@@ -20,35 +20,35 @@ import gameCanvasUtil.Resource.SoundManagerInterface;
  * @author kuro@ shift>>sega
  *         fujieda@ shift>>ntt
  *
- * ‚³‚Ü‚´‚Ü‚È‹@”\‚ğæ‚è‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+ * ã•ã¾ã–ã¾ãªæ©Ÿèƒ½ã‚’å–ã‚Šã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
  *
- * Šî–{“I‚É‚Í‘¼‚É‚½‚ç‚¢‰ñ‚·‚¾‚¯‚Å‚·
+ * åŸºæœ¬çš„ã«ã¯ä»–ã«ãŸã‚‰ã„å›ã™ã ã‘ã§ã™
  */
 public class GameCanvas
 {
-    /** ‰æ–Ê‚Ì• */
+    /** ç”»é¢ã®å¹… */
     public static final int WIDTH = 640;
-    /** ‰æ–Ê‚Ì‚‚³ */
+    /** ç”»é¢ã®é«˜ã• */
     public static final int HEIGHT = 480;
-    /** FPS‚Ìİ’è */
+    /** FPSã®è¨­å®š */
     public static final int CONFIG_FPS = 30;
 
-    /** ãƒ{ƒ^ƒ“ */
+    /** ä¸Šãƒœã‚¿ãƒ³ */
     public static final int KEY_UP = InputManager.BUTTON_UP;
-    /** ‰ºƒ{ƒ^ƒ“ */
+    /** ä¸‹ãƒœã‚¿ãƒ³ */
     public static final int KEY_DOWN = InputManager.BUTTON_DOWN;
-    /** ¶ƒ{ƒ^ƒ“ */
+    /** å·¦ãƒœã‚¿ãƒ³ */
     public static final int KEY_LEFT = InputManager.BUTTON_LEFT;
-    /** ‰Eƒ{ƒ^ƒ“ */
+    /** å³ãƒœã‚¿ãƒ³ */
     public static final int KEY_RIGHT = InputManager.BUTTON_RIGHT;
 
-    /** ZƒL[ */
+    /** Zã‚­ãƒ¼ */
     public static final int KEY_Z = InputManager.BUTTON_A;
-    /** XƒL[ */
+    /** Xã‚­ãƒ¼ */
     public static final int KEY_X = InputManager.BUTTON_B;
-    /** CƒL[ */
+    /** Cã‚­ãƒ¼ */
     public static final int KEY_C = InputManager.BUTTON_C;
-    /** VƒL[ */
+    /** Vã‚­ãƒ¼ */
     public static final int KEY_V = InputManager.BUTTON_D;
 
     /** ENTER */
@@ -57,60 +57,60 @@ public class GameCanvas
     /** SPACE */
     public static final int KEY_SPACE = InputManager.BUTTON_SELECT;
 
-    // FŠÖŒW‚Ì’è”
+    // è‰²é–¢ä¿‚ã®å®šæ•°
 
-    /** ”’F */
+    /** ç™½è‰² */
     public static final int COLOR_WHITE = 0xFFFFFF;
-    /** •F */
+    /** é»’è‰² */
     public static final int COLOR_BLACK = 0x000000;
-    /** ŠDF */
+    /** ç°è‰² */
     public static final int COLOR_GRAY = 0x808080;
-    /** ÔF */
+    /** èµ¤è‰² */
     public static final int COLOR_RED = 0xFF0000;
-    /** ÂF */
+    /** é’è‰² */
     public static final int COLOR_BLUE = 0x0000FF;
-    /** —ÎF */
+    /** ç·‘è‰² */
     public static final int COLOR_GREEN = 0x00FF00;
-    /** ‰©F */
+    /** é»„è‰² */
     public static final int COLOR_YELLOW = 0xFFFF00;
-    /** ‡F */
+    /** ç´«è‰² */
     public static final int COLOR_PURPLE = 0xFF00FF;
-    /** ƒVƒAƒ“F */
+    /** ã‚·ã‚¢ãƒ³è‰² */
     public static final int COLOR_CYAN = 0x00FFFF;
-    /** ‚İ‚¸‚¢‚ë */
+    /** ã¿ãšã„ã‚ */
     public static final int COLOR_AQUA = 0x7F7FFF;
 
-    // ‰æ‘œ‚ÌŠÇ—‚Æ‚©‚ğ‚·‚éƒIƒuƒWƒFƒNƒg
+    // ç”»åƒã®ç®¡ç†ã¨ã‹ã‚’ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     private ImageManager imageManager;
-    // SE‚ÌŠÇ—‚ğ‚·‚éƒIƒuƒWƒFƒNƒg
+    // SEã®ç®¡ç†ã‚’ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     private SoundManagerInterface seManager;
-    // BGM‚ÌŠÇ—‚ğ‚·‚éƒIƒuƒWƒFƒNƒg
+    // BGMã®ç®¡ç†ã‚’ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     private SoundManagerInterface bgmManager;
-    // ƒL[‚Ì“ü—Í‚ğŠÇ—‚·‚éƒIƒuƒWƒFƒNƒg
+    // ã‚­ãƒ¼ã®å…¥åŠ›ã‚’ç®¡ç†ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     private InputManager inputManager;
-    // Às‚·‚éƒQ[ƒ€ƒCƒ“ƒ^[ƒtƒF[ƒX‚ğŒp‚¢‚¾ƒIƒuƒWƒFƒNƒg
+    // å®Ÿè¡Œã™ã‚‹ã‚²ãƒ¼ãƒ ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚’ç¶™ã„ã ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     private GameInterface game;
-    // ƒZ[ƒuƒf[ƒ^ƒ}ƒl[ƒWƒƒ
+    // ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ãƒãƒãƒ¼ã‚¸ãƒ£
     private SavedataManager savedataManager;
 
-    // ƒ‰ƒ“ƒ_ƒ€—p
+    // ãƒ©ãƒ³ãƒ€ãƒ ç”¨
     private Random rand = new Random();
 
-    // •`‰ææ
+    // æç”»å…ˆ
     private Graphics graphics;
-    // ƒIƒtƒXƒNƒŠ[ƒ“—p‚ÌƒCƒ[ƒW
+    // ã‚ªãƒ•ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ç”¨ã®ã‚¤ãƒ¡ãƒ¼ã‚¸
     private Image offImage;
 
-    // JFrame‚Ö‚ÌQÆ
+    // JFrameã¸ã®å‚ç…§
     private JFrame frame;
 
-    // ƒVƒ“ƒOƒ‹ƒgƒ“—p‚Éì¬
+    // ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ç”¨ã«ä½œæˆ
     static private GameCanvas _gc;
 
     /**
-     * ƒVƒ“ƒOƒ‹ƒgƒ“ Šù‚ÉgameCanvasƒIƒuƒWƒFƒNƒg‚ª¶¬‚³‚ê‚Ä‚¢‚½‚çA‚»‚ê‚ğ•Ô‚·B‚È‚¢‚È‚ç¶¬‚µ‚Ä•Ô‚·B
+     * ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ æ—¢ã«gameCanvasã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç”Ÿæˆã•ã‚Œã¦ã„ãŸã‚‰ã€ãã‚Œã‚’è¿”ã™ã€‚ãªã„ãªã‚‰ç”Ÿæˆã—ã¦è¿”ã™ã€‚
      *
-     * @return gameCanvasƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·
+     * @return gameCanvasã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™
      */
     static public GameCanvas getInstance()
     {
@@ -120,14 +120,14 @@ public class GameCanvas
     }
 
     /**
-     * ƒVƒ“ƒOƒ‹ƒgƒ“‚Ì‚½‚ßAƒvƒ‰ƒCƒx[ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ã®ãŸã‚ã€ãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     private GameCanvas()
     {
     }
 
     /**
-     * gameCanvas‚Ì‰Šú‰»‚ğs‚¤
+     * gameCanvasã®åˆæœŸåŒ–ã‚’è¡Œã†
      */
     public void init(JFrame _f, GameInterface g)
     {
@@ -153,7 +153,7 @@ public class GameCanvas
     }
 
     /**
-     * gameCanvas‚ÌI—¹‚Ìˆ—‚Å‚·
+     * gameCanvasã®çµ‚äº†æ™‚ã®å‡¦ç†ã§ã™
      */
     public void finalize()
     {
@@ -161,12 +161,12 @@ public class GameCanvas
         {
             this.game.finalGame();
         }
-        // ƒZ[ƒuˆ—
+        // ã‚»ãƒ¼ãƒ–å‡¦ç†
         this.writeRecord();
     }
 
     /**
-     * GraphicsƒNƒ‰ƒX‚Ö‚ÌQÆ‚ğƒZƒbƒg‚·‚é
+     * Graphicsã‚¯ãƒ©ã‚¹ã¸ã®å‚ç…§ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
      *
      * @param gr
      */
@@ -178,10 +178,10 @@ public class GameCanvas
     }
 
     /**
-     * Œ»İ‚Ì‰æ–Ê‚ğA‰æ‘œ‚Æ‚µ‚Ä•Û‘¶‚µ‚Ü‚·
+     * ç¾åœ¨ã®ç”»é¢ã‚’ã€ç”»åƒã¨ã—ã¦ä¿å­˜ã—ã¾ã™
      *
-     * @param file Šg’£q‚ğœ‚¢‚½ƒtƒ@ƒCƒ‹–¼‚ğ“ü‚ê‚Ü‚·
-     * @return •Û‘¶‚É¬Œ÷‚µ‚½‚©‚ğ•Ô‚µ‚Ü‚·
+     * @param file æ‹¡å¼µå­ã‚’é™¤ã„ãŸãƒ•ã‚¡ã‚¤ãƒ«åã‚’å…¥ã‚Œã¾ã™
+     * @return ä¿å­˜ã«æˆåŠŸã—ãŸã‹ã‚’è¿”ã—ã¾ã™
      */
     public boolean writeScreenImage(String file)
     {
@@ -201,9 +201,9 @@ public class GameCanvas
     }
 
     /**
-     * Window‚Ì•¶š—ñ‚ğw’è‚µ‚Ü‚·
+     * Windowã®æ–‡å­—åˆ—ã‚’æŒ‡å®šã—ã¾ã™
      *
-     * @param title Window‚Ìƒ^ƒCƒgƒ‹‚Ì•¶š—ñ‚ğw’è
+     * @param title Windowã®ã‚¿ã‚¤ãƒˆãƒ«ã®æ–‡å­—åˆ—ã‚’æŒ‡å®š
      */
     public void setWindowTitle(String title)
     {
@@ -211,11 +211,11 @@ public class GameCanvas
     }
 
     /**
-     * •¶š—ñ‚ğ•`‰æ‚·‚é
+     * æ–‡å­—åˆ—ã‚’æç”»ã™ã‚‹
      *
-     * @param str •`‰æ‚·‚é•¶š—ñ
-     * @param x ¶ã‚Ì‚wÀ•W
-     * @param y ¶ã‚Ì‚xÀ•W
+     * @param str æç”»ã™ã‚‹æ–‡å­—åˆ—
+     * @param x å·¦ä¸Šã®ï¼¸åº§æ¨™
+     * @param y å·¦ä¸Šã®ï¼¹åº§æ¨™
      */
     public void drawString(String str, int x, int y)
     {
@@ -223,11 +223,11 @@ public class GameCanvas
     }
 
     /**
-     * •¶š—ñ‚ğ’†SˆÊ’u‚ğw’è‚µ‚Ä•`‰æ‚·‚é
+     * æ–‡å­—åˆ—ã‚’ä¸­å¿ƒä½ç½®ã‚’æŒ‡å®šã—ã¦æç”»ã™ã‚‹
      *
-     * @param str •`‰æ‚·‚é•¶š—ñ
-     * @param x ’†S‚Ì‚wÀ•W
-     * @param y ã‚Ì‚xÀ•W
+     * @param str æç”»ã™ã‚‹æ–‡å­—åˆ—
+     * @param x ä¸­å¿ƒã®ï¼¸åº§æ¨™
+     * @param y ä¸Šã®ï¼¹åº§æ¨™
      */
     public void drawCenterString(String str, int x, int y)
     {
@@ -235,27 +235,27 @@ public class GameCanvas
     }
 
     /**
-     * •¶š—ñ‚ğ‰EŠñ‚¹‚É‚µ‚Ä•`‰æ‚·‚é
+     * æ–‡å­—åˆ—ã‚’å³å¯„ã›ã«ã—ã¦æç”»ã™ã‚‹
      *
-     * @param str •`‰æ‚·‚é•¶š—ñ
-     * @param x ‰Eã‚Ì‚wÀ•W
-     * @param y ã‚Ì‚xÀ•W
+     * @param str æç”»ã™ã‚‹æ–‡å­—åˆ—
+     * @param x å³ä¸Šã®ï¼¸åº§æ¨™
+     * @param y ä¸Šã®ï¼¹åº§æ¨™
      */
     public void drawRightString(String str, int x, int y)
     {
         this.drawString(str, x - getStringWidth(str), y);
     }
 
-    // /ƒtƒHƒ“ƒgƒIƒuƒWƒFƒNƒg
+    // /ãƒ•ã‚©ãƒ³ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     private Font myFont;
     private int FontSize;
 
     /**
-     * drawString‚È‚Ç‚Åg—p‚·‚éƒtƒHƒ“ƒg‚ğ•ÏX‚µ‚Ü‚·B
+     * drawStringãªã©ã§ä½¿ç”¨ã™ã‚‹ãƒ•ã‚©ãƒ³ãƒˆã‚’å¤‰æ›´ã—ã¾ã™ã€‚
      *
-     * @param font_name ƒtƒHƒ“ƒg–¼‚Ìw’è
-     * @param font_style ƒtƒHƒ“ƒg‚ÌƒXƒ^ƒCƒ‹‚Ìw’è
-     * @param font_size ƒtƒHƒ“ƒg‚ÌƒTƒCƒY‚Ìw’è
+     * @param font_name ãƒ•ã‚©ãƒ³ãƒˆåã®æŒ‡å®š
+     * @param font_style ãƒ•ã‚©ãƒ³ãƒˆã®ã‚¹ã‚¿ã‚¤ãƒ«ã®æŒ‡å®š
+     * @param font_size ãƒ•ã‚©ãƒ³ãƒˆã®ã‚µã‚¤ã‚ºã®æŒ‡å®š
      */
     public void setFont(String font_name, int font_style, int font_size)
     {
@@ -265,9 +265,9 @@ public class GameCanvas
     }
 
     /**
-     * ƒtƒHƒ“ƒgƒTƒCƒY‚Ì•ÏX
+     * ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚ºã®å¤‰æ›´
      *
-     * @param font_size ƒtƒHƒ“ƒg‚ÌƒTƒCƒY‚ğw’è‚µ‚Ü‚·
+     * @param font_size ãƒ•ã‚©ãƒ³ãƒˆã®ã‚µã‚¤ã‚ºã‚’æŒ‡å®šã—ã¾ã™
      */
     public void setFontSize(int font_size)
     {
@@ -275,12 +275,12 @@ public class GameCanvas
     }
 
     /**
-     * •¶š—ñ‚Ìƒhƒbƒg•‚ğ’²‚×‚Ü‚·
+     * æ–‡å­—åˆ—ã®ãƒ‰ãƒƒãƒˆå¹…ã‚’èª¿ã¹ã¾ã™
      *
-     * ˆø”str‚ğdrawString“™‚Å•`‰æ‚µ‚½‚Æ‚«‚Ì•‚ğ•Ô‚µ‚Ü‚·B
+     * å¼•æ•°strã‚’drawStringç­‰ã§æç”»ã—ãŸã¨ãã®å¹…ã‚’è¿”ã—ã¾ã™ã€‚
      *
-     * @param str ’²‚×‚é•¶š—ñ
-     * @return ˆø”str‚ğ•`‰æ‚µ‚½‚Æ‚«‚Ì•
+     * @param str èª¿ã¹ã‚‹æ–‡å­—åˆ—
+     * @return å¼•æ•°strã‚’æç”»ã—ãŸã¨ãã®å¹…
      */
     public int getStringWidth(String str)
     {
@@ -289,9 +289,9 @@ public class GameCanvas
     }
 
     /**
-     * drawString‚âAdrawRect‚È‚Ç‚Åg—p‚·‚éF‚ÌƒZƒbƒg
+     * drawStringã‚„ã€drawRectãªã©ã§ä½¿ç”¨ã™ã‚‹è‰²ã®ã‚»ãƒƒãƒˆ
      *
-     * @param color RGB‚Åw’è
+     * @param color RGBã§æŒ‡å®š
      */
     public void setColor(int color)
     {
@@ -302,11 +302,11 @@ public class GameCanvas
     }
 
     /**
-     * drawString‚âAdrawRect‚È‚Ç‚Åg—p‚·‚éF‚ÌƒZƒbƒg
+     * drawStringã‚„ã€drawRectãªã©ã§ä½¿ç”¨ã™ã‚‹è‰²ã®ã‚»ãƒƒãƒˆ
      *
-     * @param red ‚q¬•ª
-     * @param green ‚f¬•ª
-     * @param blue ‚a¬•ª
+     * @param red ï¼²æˆåˆ†
+     * @param green ï¼§æˆåˆ†
+     * @param blue ï¼¢æˆåˆ†
      */
     public void setColor(int red, int green, int blue)
     {
@@ -314,12 +314,12 @@ public class GameCanvas
     }
 
     /**
-     * ’¼ü‚Ì•`‰æ
+     * ç›´ç·šã®æç”»
      *
-     * @param sx ŠJn“_‚ÌXÀ•W
-     * @param sy ŠJn“X‚ÌYÀ•W
-     * @param ex I—¹“_‚ÌXÀ•W
-     * @param ey I—¹“_‚ÌYÀ•W
+     * @param sx é–‹å§‹ç‚¹ã®Xåº§æ¨™
+     * @param sy é–‹å§‹åº—ã®Yåº§æ¨™
+     * @param ex çµ‚äº†ç‚¹ã®Xåº§æ¨™
+     * @param ey çµ‚äº†ç‚¹ã®Yåº§æ¨™
      */
     public void drawLine(int sx, int sy, int ex, int ey)
     {
@@ -327,12 +327,12 @@ public class GameCanvas
     }
 
     /**
-     * ’†”²‚«‚Ì’·•ûŒ`‚Ì•`‰æ
+     * ä¸­æŠœãã®é•·æ–¹å½¢ã®æç”»
      *
-     * @param x ’·•ûŒ`‚Ì¶ã‚Ì‚wÀ•W
-     * @param y ’·•ûŒ`‚Ì¶ã‚Ì‚xÀ•W
-     * @param w ’·•ûŒ`‚Ì•
-     * @param h ’·•ûŒ`‚Ì‚‚³
+     * @param x é•·æ–¹å½¢ã®å·¦ä¸Šã®ï¼¸åº§æ¨™
+     * @param y é•·æ–¹å½¢ã®å·¦ä¸Šã®ï¼¹åº§æ¨™
+     * @param w é•·æ–¹å½¢ã®å¹…
+     * @param h é•·æ–¹å½¢ã®é«˜ã•
      */
     public void drawRect(int x, int y, int w, int h)
     {
@@ -340,12 +340,12 @@ public class GameCanvas
     }
 
     /**
-     * “h‚è‚Â‚Ô‚µ‚Ì’·•ûŒ`‚Ì•`‰æ
+     * å¡—ã‚Šã¤ã¶ã—ã®é•·æ–¹å½¢ã®æç”»
      *
-     * @param x ’·•ûŒ`‚Ì¶ã‚Ì‚wÀ•W
-     * @param y ’·•ûŒ`‚Ì¶ã‚Ì‚xÀ•W
-     * @param w ’·•ûŒ`‚Ì•
-     * @param h ’·•ûŒ`‚Ì‚‚³
+     * @param x é•·æ–¹å½¢ã®å·¦ä¸Šã®ï¼¸åº§æ¨™
+     * @param y é•·æ–¹å½¢ã®å·¦ä¸Šã®ï¼¹åº§æ¨™
+     * @param w é•·æ–¹å½¢ã®å¹…
+     * @param h é•·æ–¹å½¢ã®é«˜ã•
      */
     public void fillRect(int x, int y, int w, int h)
     {
@@ -353,11 +353,11 @@ public class GameCanvas
     }
 
     /**
-     * ’†”²‚«‰~‚Ì•`‰æ
+     * ä¸­æŠœãå††ã®æç”»
      *
-     * @param x ‰~‚Ì’†S‚Ì‚wÀ•W
-     * @param y ‰~‚Ì’†S‚Ì‚xÀ•W
-     * @param r ‰~‚Ì”¼Œa
+     * @param x å††ã®ä¸­å¿ƒã®ï¼¸åº§æ¨™
+     * @param y å††ã®ä¸­å¿ƒã®ï¼¹åº§æ¨™
+     * @param r å††ã®åŠå¾„
      */
     public void drawCircle(int x, int y, int r)
     {
@@ -365,11 +365,11 @@ public class GameCanvas
     }
 
     /**
-     * “h‚è‚Â‚Ô‚µ‰~‚Ì•`‰æ
+     * å¡—ã‚Šã¤ã¶ã—å††ã®æç”»
      *
-     * @param x ‰~‚Ì’†S‚Ì‚wÀ•W
-     * @param y ‰~‚Ì’†S‚Ì‚xÀ•W
-     * @param r ‰~‚Ì”¼Œa
+     * @param x å††ã®ä¸­å¿ƒã®ï¼¸åº§æ¨™
+     * @param y å††ã®ä¸­å¿ƒã®ï¼¹åº§æ¨™
+     * @param r å††ã®åŠå¾„
      */
     public void fillCircle(int x, int y, int r)
     {
@@ -377,11 +377,11 @@ public class GameCanvas
     }
 
     /**
-     * ‰æ‘œ•`‰æ
+     * ç”»åƒæç”»
      *
-     * @param id ‰æ‘œ‚ÌIDBimg0.gif‚È‚çID‚Í0Bimg1.gif‚È‚çID‚Í1B
-     * @param x ‰æ‘œ‚Ì¶ã‚Ì‚wÀ•W
-     * @param y ‰æ‘œ‚Ì¶ã‚Ì‚xÀ•W
+     * @param id ç”»åƒã®IDã€‚img0.gifãªã‚‰IDã¯0ã€‚img1.gifãªã‚‰IDã¯1ã€‚
+     * @param x ç”»åƒã®å·¦ä¸Šã®ï¼¸åº§æ¨™
+     * @param y ç”»åƒã®å·¦ä¸Šã®ï¼¹åº§æ¨™
      */
     public void drawImage(int id, int x, int y)
     {
@@ -396,15 +396,15 @@ public class GameCanvas
     }
 
     /**
-     * ‰æ‘œ•”•ª•`‰æ
+     * ç”»åƒéƒ¨åˆ†æç”»
      *
-     * @param id ‰æ‘œ‚ÌIDBimg0.gif‚È‚çID‚Í0Bimg1.gif‚È‚çID‚Í1B
-     * @param x ‰æ‘œ‚Ì¶ã‚Ì‚wÀ•W
-     * @param y ‰æ‘œ‚Ì¶ã‚Ì‚xÀ•W
-     * @param u Œ³‰æ‘œ‚æ‚èg—p‚·‚é•”•ª‚Ì¶ã‚wÀ•W
-     * @param v Œ³‰æ‘œ‚æ‚èg—p‚·‚é•”•ª‚Ì¶ã‚xÀ•W
-     * @param w •`‰æ‚·‚é•
-     * @param h •`‰æ‚·‚é‚‚³
+     * @param id ç”»åƒã®IDã€‚img0.gifãªã‚‰IDã¯0ã€‚img1.gifãªã‚‰IDã¯1ã€‚
+     * @param x ç”»åƒã®å·¦ä¸Šã®ï¼¸åº§æ¨™
+     * @param y ç”»åƒã®å·¦ä¸Šã®ï¼¹åº§æ¨™
+     * @param u å…ƒç”»åƒã‚ˆã‚Šä½¿ç”¨ã™ã‚‹éƒ¨åˆ†ã®å·¦ä¸Šï¼¸åº§æ¨™
+     * @param v å…ƒç”»åƒã‚ˆã‚Šä½¿ç”¨ã™ã‚‹éƒ¨åˆ†ã®å·¦ä¸Šï¼¹åº§æ¨™
+     * @param w æç”»ã™ã‚‹å¹…
+     * @param h æç”»ã™ã‚‹é«˜ã•
      */
     public void drawClipImage(int id, int x, int y, int u, int v, int w, int h)
     {
@@ -419,18 +419,18 @@ public class GameCanvas
         }
     }
 
-    // / ƒAƒtƒBƒ“ƒgƒ‰ƒ“ƒX—p
+    // / ã‚¢ãƒ•ã‚£ãƒ³ãƒˆãƒ©ãƒ³ã‚¹ç”¨
     private AffineTransform tr = new AffineTransform();
 
     /**
-     * ‰æ‘œ‚ğŠg‘åk¬E‰ñ“]‚ğ‚©‚¯‚Ä•\¦
+     * ç”»åƒã‚’æ‹¡å¤§ç¸®å°ãƒ»å›è»¢ã‚’ã‹ã‘ã¦è¡¨ç¤º
      *
-     * @param id ‰æ‘œ‚Ìƒiƒ“ƒo[‚Å‚·
-     * @param x ‰æ‘œ‚Ì’†S‚wÀ•W‚Å‚·
-     * @param y ‰æ‘œ‚Ì’†S‚xÀ•W‚Å‚·
-     * @param xsize ‰¡‚É‚Ç‚Ì‚­‚ç‚¢Šg‘å‚·‚é‚©H100%‚ğŠî€‚É‚µ‚Ä‚Ü‚·B(xsize‚ª100‚ÌA“™”{B200‚È‚ç2”{‚Ì‘å‚«‚³)
-     * @param ysize c‚É‚Ç‚Ì‚­‚ç‚¢Šg‘å‚·‚é‚©H100%‚ğŠî€‚É‚µ‚Ä‚Ü‚·B(ysize‚ª100‚ÌA“™”{B200‚È‚ç2”{‚Ì‘å‚«‚³)
-     * @param angle ‰æ‘œ‚ğ‰½“x‰ñ“]‚³‚¹‚é‚©H(Šp“x‚Åw’è)notŒÊ“x–@
+     * @param id ç”»åƒã®ãƒŠãƒ³ãƒãƒ¼ã§ã™
+     * @param x ç”»åƒã®ä¸­å¿ƒï¼¸åº§æ¨™ã§ã™
+     * @param y ç”»åƒã®ä¸­å¿ƒï¼¹åº§æ¨™ã§ã™
+     * @param xsize æ¨ªã«ã©ã®ãã‚‰ã„æ‹¡å¤§ã™ã‚‹ã‹ï¼Ÿ100%ã‚’åŸºæº–ã«ã—ã¦ã¾ã™ã€‚(xsizeãŒ100ã®æ™‚ã€ç­‰å€ã€‚200ãªã‚‰2å€ã®å¤§ãã•)
+     * @param ysize ç¸¦ã«ã©ã®ãã‚‰ã„æ‹¡å¤§ã™ã‚‹ã‹ï¼Ÿ100%ã‚’åŸºæº–ã«ã—ã¦ã¾ã™ã€‚(ysizeãŒ100ã®æ™‚ã€ç­‰å€ã€‚200ãªã‚‰2å€ã®å¤§ãã•)
+     * @param angle ç”»åƒã‚’ä½•åº¦å›è»¢ã•ã›ã‚‹ã‹ï¼Ÿ(è§’åº¦ã§æŒ‡å®š)notå¼§åº¦æ³•
      */
     public void drawScaledRotateImage(int id, int x, int y, int xsize,
             int ysize, double rotate)
@@ -441,16 +441,16 @@ public class GameCanvas
     }
 
     /**
-     * ‰æ‘œ‚ğŠg‘åk¬E‰ñ“]‚ğ‚©‚¯‚Ä•\¦
+     * ç”»åƒã‚’æ‹¡å¤§ç¸®å°ãƒ»å›è»¢ã‚’ã‹ã‘ã¦è¡¨ç¤º
      *
-     * @param id@ ‰æ‘œ‚Ìƒiƒ“ƒo[‚Å‚·
-     * @param x ‰æ‘œ‚Ì’†S‚wÀ•W‚Å‚·
-     * @param y ‰æ‘œ‚Ì’†S‚xÀ•W‚Å‚·
-     * @param xsize ‰¡‚É‚Ç‚Ì‚­‚ç‚¢Šg‘å‚·‚é‚©H100%‚ğŠî€‚É‚µ‚Ä‚Ü‚·B(xsize‚ª100‚ÌA“™”{B200‚È‚ç2”{‚Ì‘å‚«‚³)
-     * @param ysize c‚É‚Ç‚Ì‚­‚ç‚¢Šg‘å‚·‚é‚©H100%‚ğŠî€‚É‚µ‚Ä‚Ü‚·B(ysize‚ª100‚ÌA“™”{B200‚È‚ç2”{‚Ì‘å‚«‚³)
-     * @param angle ‰æ‘œ‚ğ‰½“x‰ñ“]‚³‚¹‚é‚©H(Šp“x‚Åw’è)notŒÊ“x–@
-     * @param px ‰æ‘œ‚Ì‰ñ“]‚Ì’†SˆÊ’u‚Ì‚wÀ•W
-     * @param py ‰æ‘œ‚Ì‰ñ“]‚Ì’†SˆÊ’u‚Ì‚xÀ•W
+     * @param idã€€ ç”»åƒã®ãƒŠãƒ³ãƒãƒ¼ã§ã™
+     * @param x ç”»åƒã®ä¸­å¿ƒï¼¸åº§æ¨™ã§ã™
+     * @param y ç”»åƒã®ä¸­å¿ƒï¼¹åº§æ¨™ã§ã™
+     * @param xsize æ¨ªã«ã©ã®ãã‚‰ã„æ‹¡å¤§ã™ã‚‹ã‹ï¼Ÿ100%ã‚’åŸºæº–ã«ã—ã¦ã¾ã™ã€‚(xsizeãŒ100ã®æ™‚ã€ç­‰å€ã€‚200ãªã‚‰2å€ã®å¤§ãã•)
+     * @param ysize ç¸¦ã«ã©ã®ãã‚‰ã„æ‹¡å¤§ã™ã‚‹ã‹ï¼Ÿ100%ã‚’åŸºæº–ã«ã—ã¦ã¾ã™ã€‚(ysizeãŒ100ã®æ™‚ã€ç­‰å€ã€‚200ãªã‚‰2å€ã®å¤§ãã•)
+     * @param angle ç”»åƒã‚’ä½•åº¦å›è»¢ã•ã›ã‚‹ã‹ï¼Ÿ(è§’åº¦ã§æŒ‡å®š)notå¼§åº¦æ³•
+     * @param px ç”»åƒã®å›è»¢ã®ä¸­å¿ƒä½ç½®ã®ï¼¸åº§æ¨™
+     * @param py ç”»åƒã®å›è»¢ã®ä¸­å¿ƒä½ç½®ã®ï¼¹åº§æ¨™
      */
     public void drawScaledRotateImage(int id, int x, int y, int xsize,
             int ysize, double rotate, double px, double py)
@@ -463,7 +463,7 @@ public class GameCanvas
         px *= xsize / 100.0;
         py *= ysize / 100.0;
 
-        // ³‹K‰»
+        // æ­£è¦åŒ–
         tr.setToIdentity();
 
         tr.translate(x, y);
@@ -475,10 +475,10 @@ public class GameCanvas
     }
 
     /**
-     * ‰æ‘œ‚Ì•‚ğ“¾‚é
+     * ç”»åƒã®å¹…ã‚’å¾—ã‚‹
      *
-     * @param id ‰æ‘œ‚ÌIDBimg0.gif‚È‚çID‚Í0Bimg1.gif‚È‚çID‚Í1B
-     * @return ˆø”id‚Åw’è‚³‚ê‚½‰æ‘œ‚Ì•‚ğ•Ô‚·
+     * @param id ç”»åƒã®IDã€‚img0.gifãªã‚‰IDã¯0ã€‚img1.gifãªã‚‰IDã¯1ã€‚
+     * @return å¼•æ•°idã§æŒ‡å®šã•ã‚ŒãŸç”»åƒã®å¹…ã‚’è¿”ã™
      */
     public int getImageWidth(int id)
     {
@@ -486,10 +486,10 @@ public class GameCanvas
     }
 
     /**
-     * ‰æ‘œ‚Ì‚‚³‚ğ“¾‚é
+     * ç”»åƒã®é«˜ã•ã‚’å¾—ã‚‹
      *
-     * @param id ‰æ‘œ‚ÌIDBimg0.gif‚È‚çID‚Í0Bimg1.gif‚È‚çID‚Í1B
-     * @return ˆø”id‚Åw’è‚³‚ê‚½‰æ‘œ‚Ì‚‚³‚ğ•Ô‚·
+     * @param id ç”»åƒã®IDã€‚img0.gifãªã‚‰IDã¯0ã€‚img1.gifãªã‚‰IDã¯1ã€‚
+     * @return å¼•æ•°idã§æŒ‡å®šã•ã‚ŒãŸç”»åƒã®é«˜ã•ã‚’è¿”ã™
      */
     public int getImageHeight(int id)
     {
@@ -497,9 +497,9 @@ public class GameCanvas
     }
 
     /**
-     * —”‚Ìí‚ğƒZƒbƒg‚·‚é
+     * ä¹±æ•°ã®ç¨®ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
      *
-     * @param seed ƒZƒbƒg‚·‚é—”‚ÌƒV[ƒh
+     * @param seed ã‚»ãƒƒãƒˆã™ã‚‹ä¹±æ•°ã®ã‚·ãƒ¼ãƒ‰
      */
     public void setSeed(int seed)
     {
@@ -507,11 +507,11 @@ public class GameCanvas
     }
 
     /**
-     * min`max‚Ü‚Å‚ÌŠÔ‚Ìƒ‰ƒ“ƒ_ƒ€‚È’l‚ğ•Ô‚·B
+     * minï½maxã¾ã§ã®é–“ã®ãƒ©ãƒ³ãƒ€ãƒ ãªå€¤ã‚’è¿”ã™ã€‚
      *
-     * @param min ƒ‰ƒ“ƒ_ƒ€‚ÌÅ¬’l
-     * @param max ƒ‰ƒ“ƒ_ƒ€‚ÌÅ‘å’l
-     * @return ¶¬‚µ‚½ƒ‰ƒ“ƒ_ƒ€’l
+     * @param min ãƒ©ãƒ³ãƒ€ãƒ ã®æœ€å°å€¤
+     * @param max ãƒ©ãƒ³ãƒ€ãƒ ã®æœ€å¤§å€¤
+     * @return ç”Ÿæˆã—ãŸãƒ©ãƒ³ãƒ€ãƒ å€¤
      */
     public int rand(int min, int max)
     {
@@ -533,7 +533,7 @@ public class GameCanvas
     }
 
     /**
-     * ƒQ[ƒ€ƒXƒe[ƒg‚ğƒfƒtƒHƒ‹ƒgó‘Ô‚É‚µ‚Ü‚·
+     * ã‚²ãƒ¼ãƒ ã‚¹ãƒ†ãƒ¼ãƒˆã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆçŠ¶æ…‹ã«ã—ã¾ã™
      */
     public void resetGame()
     {
@@ -543,7 +543,7 @@ public class GameCanvas
     }
 
     /**
-     * Às‚³‚ê‚éƒQ[ƒ€ƒNƒ‰ƒX‚ğÄƒZƒbƒg
+     * å®Ÿè¡Œã•ã‚Œã‚‹ã‚²ãƒ¼ãƒ ã‚¯ãƒ©ã‚¹ã‚’å†ã‚»ãƒƒãƒˆ
      */
     public void resetGameInstance(GameInterface g)
     {
@@ -555,7 +555,7 @@ public class GameCanvas
     }
 
     /**
-     * XV‚És‚¤ˆ—
+     * æ›´æ–°æ™‚ã«è¡Œã†å‡¦ç†
      */
     public void updateMessage()
     {
@@ -564,12 +564,12 @@ public class GameCanvas
             this.game.updateGame();
             this.writeRecord();
         }
-        // BGM‚ªƒXƒgƒŠ[ƒ~ƒ“ƒOÄ¶‚È‚Ì‚ÅƒAƒbƒvƒf[ƒg
+        // BGMãŒã‚¹ãƒˆãƒªãƒ¼ãƒŸãƒ³ã‚°å†ç”Ÿãªã®ã§ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ
         this.bgmManager.update();
     }
 
     /**
-     * •`‰æ‚És‚¤ˆ—
+     * æç”»æ™‚ã«è¡Œã†å‡¦ç†
      */
     public void drawMessage()
     {
@@ -578,7 +578,7 @@ public class GameCanvas
     }
 
     /**
-     * ‰æ–Ê‚ğ”’‚Å“h‚è‚Â‚Ô‚·
+     * ç”»é¢ã‚’ç™½ã§å¡—ã‚Šã¤ã¶ã™
      *
      */
     public void clearScreen()
@@ -588,7 +588,7 @@ public class GameCanvas
     }
 
     /**
-     * ƒAƒvƒŠ‚ğI—¹‚³‚¹‚é
+     * ã‚¢ãƒ—ãƒªã‚’çµ‚äº†ã•ã›ã‚‹
      */
     public void exitApp()
     {
@@ -598,10 +598,10 @@ public class GameCanvas
     }
 
     /**
-     * YesNo‚ğ‘I‘ğ‚³‚¹‚éƒ_ƒCƒAƒƒO‚ğo‚·
+     * YesNoã‚’é¸æŠã•ã›ã‚‹ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’å‡ºã™
      *
-     * @param message Šm”F—p‚ÌƒƒbƒZ[ƒW
-     * @return ‘I‘ğˆ‚ÌŒ‹‰Ê‚ğ•Ô‚·
+     * @param message ç¢ºèªç”¨ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @return é¸æŠè‚¢ã®çµæœã‚’è¿”ã™
      */
     public boolean showYesNoDialog(String message)
     {
@@ -610,11 +610,11 @@ public class GameCanvas
     }
 
     /**
-     * ƒ†[ƒU[‚É•¶š—ñ‚Ì“ü—Í‚ğ‹‚ß‚éƒ_ƒCƒAƒƒO‚ğo‚·
+     * ãƒ¦ãƒ¼ã‚¶ãƒ¼ã«æ–‡å­—åˆ—ã®å…¥åŠ›ã‚’æ±‚ã‚ã‚‹ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’å‡ºã™
      *
-     * @param message ƒ†[ƒU[‚É‘Î‚·‚éƒƒbƒZ[ƒW
-     * @param default_input ƒfƒtƒHƒ‹ƒgó‘Ô‚Å‚Ì“ü—Í
-     * @return “ü—Í‚³‚ê‚½ƒƒbƒZ[ƒW‚ğ•Ô‚·
+     * @param message ãƒ¦ãƒ¼ã‚¶ãƒ¼ã«å¯¾ã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param default_input ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆçŠ¶æ…‹ã§ã®å…¥åŠ›
+     * @return å…¥åŠ›ã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¿”ã™
      */
     public String showInputDialog(String message, String default_input)
     {
@@ -630,16 +630,16 @@ public class GameCanvas
 
 
 
-    // ---------------- Sound ŠÖŒW -------------------//
+    // ---------------- Sound é–¢ä¿‚ -------------------//
 
-    // Œ»İÄ¶’†‚ÌBGM ID
+    // ç¾åœ¨å†ç”Ÿä¸­ã®BGM ID
     private int cur_bgm = -1;
 
     /**
-     * BGM‚ğƒ‹[ƒvÄ¶‚·‚é
-     * BGM‚ÌÄ¶‚Í”r‘¼“I‚ÅA2‚Â“¯‚ÉÄ¶‚Ís‚í‚È‚¢
+     * BGMã‚’ãƒ«ãƒ¼ãƒ—å†ç”Ÿã™ã‚‹
+     * BGMã®å†ç”Ÿã¯æ’ä»–çš„ã§ã€2ã¤åŒæ™‚ã«å†ç”Ÿã¯è¡Œã‚ãªã„
      *
-     * @param id BGM‚Ì”Ô†
+     * @param id BGMã®ç•ªå·
      */
     public void playBGM(int id)
     {
@@ -647,11 +647,11 @@ public class GameCanvas
     }
 
     /**
-     * BGM‚ğÄ¶‚·‚é
-     * BGM‚ÌÄ¶‚Í”r‘¼“I‚ÅA2‚Â“¯‚ÉÄ¶‚Ís‚í‚È‚¢
+     * BGMã‚’å†ç”Ÿã™ã‚‹
+     * BGMã®å†ç”Ÿã¯æ’ä»–çš„ã§ã€2ã¤åŒæ™‚ã«å†ç”Ÿã¯è¡Œã‚ãªã„
      *
-     * @param id BGM‚Ì”Ô†
-     * @param loop ƒ‹[ƒv‚·‚é‚©‚Ç‚¤‚©‚ğw’è‚·‚é
+     * @param id BGMã®ç•ªå·
+     * @param loop ãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹ã©ã†ã‹ã‚’æŒ‡å®šã™ã‚‹
      */
     public void playBGM(int id, boolean loop)
     {
@@ -664,9 +664,9 @@ public class GameCanvas
     }
 
     /**
-     * BGM‚Ì‰¹—Ê‚ğ•ÏX‚·‚é
+     * BGMã®éŸ³é‡ã‚’å¤‰æ›´ã™ã‚‹
      *
-     * @param volume ‰¹—Ê‚Ìw’è(0-100)
+     * @param volume éŸ³é‡ã®æŒ‡å®š(0-100)
      */
     public void changeBGMVolume(int volume)
     {
@@ -674,7 +674,7 @@ public class GameCanvas
     }
 
     /**
-     * BGM‚ğ’â~‚·‚é
+     * BGMã‚’åœæ­¢ã™ã‚‹
      */
     public void stopBGM()
     {
@@ -685,7 +685,7 @@ public class GameCanvas
     }
 
     /**
-     * BGM‚ğˆê’â~‚·‚é
+     * BGMã‚’ä¸€æ™‚åœæ­¢ã™ã‚‹
      */
     public void pauseBGM()
     {
@@ -694,9 +694,9 @@ public class GameCanvas
     }
 
     /**
-     * SE‚ğÄ¶‚·‚é
+     * SEã‚’å†ç”Ÿã™ã‚‹
      *
-     * @param id SE‚Ì”Ô†
+     * @param id SEã®ç•ªå·
      */
     public void playSE(int id)
     {
@@ -704,10 +704,10 @@ public class GameCanvas
     }
 
     /**
-     * SE‚ğÄ¶‚·‚é
+     * SEã‚’å†ç”Ÿã™ã‚‹
      *
-     * @param id SE‚Ì”Ô†
-     * @param loop SE‚ğƒ‹[ƒv‚³‚¹‚é‚©ƒZƒbƒg‚·‚é
+     * @param id SEã®ç•ªå·
+     * @param loop SEã‚’ãƒ«ãƒ¼ãƒ—ã•ã›ã‚‹ã‹ã‚»ãƒƒãƒˆã™ã‚‹
      */
     public void playSE(int id, boolean loop)
     {
@@ -715,9 +715,9 @@ public class GameCanvas
     }
 
     /**
-     * SE‚Ì‰¹—Ê‚ğ•ÏX‚·‚é
+     * SEã®éŸ³é‡ã‚’å¤‰æ›´ã™ã‚‹
      *
-     * @param volume ‰¹—Ê‚Ìw’è(0-100)
+     * @param volume éŸ³é‡ã®æŒ‡å®š(0-100)
      */
     public void changeSEVolume(int volume)
     {
@@ -725,7 +725,7 @@ public class GameCanvas
     }
 
     /**
-     * ‘S‚Ä‚ÌSE‚ğ’â~‚·‚é
+     * å…¨ã¦ã®SEã‚’åœæ­¢ã™ã‚‹
      */
     public void stopSE()
     {
@@ -733,7 +733,7 @@ public class GameCanvas
     }
 
     /**
-     * ‘S‚Ä‚ÌSE‚ğˆê’â~‚·‚é
+     * å…¨ã¦ã®SEã‚’ä¸€æ™‚åœæ­¢ã™ã‚‹
      */
     public void pauseSE()
     {
@@ -749,14 +749,14 @@ public class GameCanvas
 
 
 
-    // -------------------ƒL[“ü—ÍŠÖŒW-----------//
+    // -------------------ã‚­ãƒ¼å…¥åŠ›é–¢ä¿‚-----------//
 
     /**
-     * ƒL[‚ğ‰Ÿ‚µ‚Ä‚¢‚é’·‚³‚ğ’²‚×‚é
-     * ˆø”‚Åw’è‚µ‚½ƒL[‚ªA‚Ç‚Ì‚­‚ç‚¢‰Ÿ‚³‚ê‚Ä‚¢‚é‚©‚ğ•Ô‚·
+     * ã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ã„ã‚‹é•·ã•ã‚’èª¿ã¹ã‚‹
+     * å¼•æ•°ã§æŒ‡å®šã—ãŸã‚­ãƒ¼ãŒã€ã©ã®ãã‚‰ã„æŠ¼ã•ã‚Œã¦ã„ã‚‹ã‹ã‚’è¿”ã™
      *
-     * @param keyCode KEY_0 ‚È‚çu0ƒL[vKEY_LEFT ‚È‚ç u¶ƒJ[ƒ\ƒ‹ƒL[v‚Æ‚¢‚¤Š´‚¶‚ÅA’²‚×‚½‚¢ƒL[‚ğw’è
-     * @return ˆø” keyCode‚Åw’è‚³‚ê‚½ƒL[‚ğ‰Ÿ‚µ‚Ä‚¢‚é’·‚³‚ğ•Ô‚·B-1‚ª—£‚µ‚½’¼ŒãB0‚È‚ç‰Ÿ‚³‚ê‚Ä‚¢‚È‚¢B1ˆÈã‚Í‰Ÿ‚µ‚Ä‚¢‚é’·‚³
+     * @param keyCode KEY_0 ãªã‚‰ã€Œ0ã‚­ãƒ¼ã€KEY_LEFT ãªã‚‰ ã€Œå·¦ã‚«ãƒ¼ã‚½ãƒ«ã‚­ãƒ¼ã€ã¨ã„ã†æ„Ÿã˜ã§ã€èª¿ã¹ãŸã„ã‚­ãƒ¼ã‚’æŒ‡å®š
+     * @return å¼•æ•° keyCodeã§æŒ‡å®šã•ã‚ŒãŸã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ã„ã‚‹é•·ã•ã‚’è¿”ã™ã€‚-1ãŒé›¢ã—ãŸç›´å¾Œã€‚0ãªã‚‰æŠ¼ã•ã‚Œã¦ã„ãªã„ã€‚1ä»¥ä¸Šã¯æŠ¼ã—ã¦ã„ã‚‹é•·ã•
      */
     public int getKeyPressLength(int keyCode)
     {
@@ -764,11 +764,11 @@ public class GameCanvas
     }
 
     /**
-     * ƒL[‚ª‰Ÿ‚³‚ê‚½ó‘Ô‚©‚Ç‚¤‚©‚ğ’²‚×‚é
-     * ˆø”‚Åw’è‚µ‚½ƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚éê‡Atrue‚ª•Ô‚³‚ê‚é
+     * ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸçŠ¶æ…‹ã‹ã©ã†ã‹ã‚’èª¿ã¹ã‚‹
+     * å¼•æ•°ã§æŒ‡å®šã—ãŸã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹å ´åˆã€trueãŒè¿”ã•ã‚Œã‚‹
      *
-     * @param keyCode KEY_0 ‚È‚çu0ƒL[vKEY_LEFT ‚È‚ç u¶ƒJ[ƒ\ƒ‹ƒL[v‚Æ‚¢‚¤Š´‚¶‚ÅA’²‚×‚½‚¢ƒL[‚ğw’è
-     * @return ˆø” keyCode‚Åw’è‚³‚ê‚½ƒL[‚ª‰Ÿ‚³‚ê‚½’¼Œã‚Å‚ ‚Á‚½ê‡ trueB—£‚µ‚Ä‚¢‚½ê‡ false
+     * @param keyCode KEY_0 ãªã‚‰ã€Œ0ã‚­ãƒ¼ã€KEY_LEFT ãªã‚‰ ã€Œå·¦ã‚«ãƒ¼ã‚½ãƒ«ã‚­ãƒ¼ã€ã¨ã„ã†æ„Ÿã˜ã§ã€èª¿ã¹ãŸã„ã‚­ãƒ¼ã‚’æŒ‡å®š
+     * @return å¼•æ•° keyCodeã§æŒ‡å®šã•ã‚ŒãŸã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸç›´å¾Œã§ã‚ã£ãŸå ´åˆ trueã€‚é›¢ã—ã¦ã„ãŸå ´åˆ false
      */
     public boolean isKeyPress(int keyCode)
     {
@@ -776,11 +776,11 @@ public class GameCanvas
     }
 
     /**
-     * ƒL[‚ğ‰Ÿ‚µ‚½uŠÔ‚©‚Ç‚¤‚©‚ğ’²‚×‚é
-     * ˆø”‚Åw’è‚µ‚½ƒL[‚ªA‰Ÿ‚³‚ê‚½’¼Œã‚Å‚ ‚Á‚½ê‡true‚ğ•Ô‚·
+     * ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸç¬é–“ã‹ã©ã†ã‹ã‚’èª¿ã¹ã‚‹
+     * å¼•æ•°ã§æŒ‡å®šã—ãŸã‚­ãƒ¼ãŒã€æŠ¼ã•ã‚ŒãŸç›´å¾Œã§ã‚ã£ãŸå ´åˆtrueã‚’è¿”ã™
      *
-     * @param keyCode KEY_0 ‚È‚çu0ƒL[vKEY_LEFT ‚È‚ç u¶ƒJ[ƒ\ƒ‹ƒL[v‚Æ‚¢‚¤Š´‚¶‚ÅA’²‚×‚½‚¢ƒL[‚ğw’è
-     * @return ˆø” keyCode‚Åw’è‚³‚ê‚½ƒL[‚ª‰Ÿ‚³‚ê‚½’¼Œã‚Å‚ ‚Á‚½ê‡ trueBƒL[‚ª‰Ÿ‚µ‚Á‚Ï‚È‚µA—£‚³‚ê‚Ä‚¢‚éó‘Ô‚Ìê‡ false
+     * @param keyCode KEY_0 ãªã‚‰ã€Œ0ã‚­ãƒ¼ã€KEY_LEFT ãªã‚‰ ã€Œå·¦ã‚«ãƒ¼ã‚½ãƒ«ã‚­ãƒ¼ã€ã¨ã„ã†æ„Ÿã˜ã§ã€èª¿ã¹ãŸã„ã‚­ãƒ¼ã‚’æŒ‡å®š
+     * @return å¼•æ•° keyCodeã§æŒ‡å®šã•ã‚ŒãŸã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸç›´å¾Œã§ã‚ã£ãŸå ´åˆ trueã€‚ã‚­ãƒ¼ãŒæŠ¼ã—ã£ã±ãªã—ã€é›¢ã•ã‚Œã¦ã„ã‚‹çŠ¶æ…‹ã®å ´åˆ false
      */
     public boolean isKeyPushed(int keyCode)
     {
@@ -788,11 +788,11 @@ public class GameCanvas
     }
 
     /**
-     * ƒL[‚ª—£‚³‚ê‚½uŠÔ‚©‚Ç‚¤‚©‚ğ’²‚×‚é
-     * ˆø”‚Åw’è‚µ‚½ƒL[‚ªA—£‚µ‚½’¼Œã‚Å‚ ‚Á‚½ê‡true‚ğ•Ô‚·
+     * ã‚­ãƒ¼ãŒé›¢ã•ã‚ŒãŸç¬é–“ã‹ã©ã†ã‹ã‚’èª¿ã¹ã‚‹
+     * å¼•æ•°ã§æŒ‡å®šã—ãŸã‚­ãƒ¼ãŒã€é›¢ã—ãŸç›´å¾Œã§ã‚ã£ãŸå ´åˆtrueã‚’è¿”ã™
      *
-     * @param keyCode KEY_0 ‚È‚çu0ƒL[vKEY_LEFT ‚È‚ç u¶ƒJ[ƒ\ƒ‹ƒL[v‚Æ‚¢‚¤Š´‚¶‚ÅA’²‚×‚½‚¢ƒL[‚ğw’è
-     * @return ˆø” keyCode‚Åw’è‚³‚ê‚½ƒL[‚ª—£‚³‚ê‚½’¼Œã‚Å‚ ‚Á‚½ê‡ trueBƒL[‚ğ‰Ÿ‚µ‚Ä‚¢‚éA—£‚µ‚Á‚Ï‚È‚µ‚Ìó‘Ô‚Ìê‡ false
+     * @param keyCode KEY_0 ãªã‚‰ã€Œ0ã‚­ãƒ¼ã€KEY_LEFT ãªã‚‰ ã€Œå·¦ã‚«ãƒ¼ã‚½ãƒ«ã‚­ãƒ¼ã€ã¨ã„ã†æ„Ÿã˜ã§ã€èª¿ã¹ãŸã„ã‚­ãƒ¼ã‚’æŒ‡å®š
+     * @return å¼•æ•° keyCodeã§æŒ‡å®šã•ã‚ŒãŸã‚­ãƒ¼ãŒé›¢ã•ã‚ŒãŸç›´å¾Œã§ã‚ã£ãŸå ´åˆ trueã€‚ã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ã„ã‚‹ã€é›¢ã—ã£ã±ãªã—ã®çŠ¶æ…‹ã®å ´åˆ false
      */
     public boolean isKeyReleased(int keyCode)
     {
@@ -800,9 +800,9 @@ public class GameCanvas
     }
 
     /**
-     * ƒ}ƒEƒX‚ÌXÀ•W‚ğæ“¾‚·‚é
+     * ãƒã‚¦ã‚¹ã®Xåº§æ¨™ã‚’å–å¾—ã™ã‚‹
      *
-     * @return Œ»İ‚Ìƒ}ƒEƒX‚ÌXÀ•W‚ğ•Ô‚·
+     * @return ç¾åœ¨ã®ãƒã‚¦ã‚¹ã®Xåº§æ¨™ã‚’è¿”ã™
      */
     public int getMouseX()
     {
@@ -810,9 +810,9 @@ public class GameCanvas
     }
 
     /**
-     * ƒ}ƒEƒX‚ÌYÀ•W‚ğæ“¾‚·‚é
+     * ãƒã‚¦ã‚¹ã®Yåº§æ¨™ã‚’å–å¾—ã™ã‚‹
      *
-     * @return Œ»İ‚Ìƒ}ƒEƒX‚ÌXÀ•W‚ğ•Ô‚·
+     * @return ç¾åœ¨ã®ãƒã‚¦ã‚¹ã®Xåº§æ¨™ã‚’è¿”ã™
      */
     public int getMouseY()
     {
@@ -820,9 +820,9 @@ public class GameCanvas
     }
 
     /**
-     * ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚Ä‚¢‚éŠÔ‚ğ’²‚×‚é
+     * ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹æ™‚é–“ã‚’èª¿ã¹ã‚‹
      *
-     * @return ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚Ä‚¢‚éŠÔ‚ğ’²‚×‚é
+     * @return ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹æ™‚é–“ã‚’èª¿ã¹ã‚‹
      */
     public int getMouseClickLength()
     {
@@ -830,9 +830,9 @@ public class GameCanvas
     }
 
     /**
-     * ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½uŠÔ‚©‚Ç‚¤‚©‚ğ’²‚×‚é
+     * ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸç¬é–“ã‹ã©ã†ã‹ã‚’èª¿ã¹ã‚‹
      *
-     * @return ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½uŠÔ‚È‚çtrue‚ğ•Ô‚·
+     * @return ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸç¬é–“ãªã‚‰trueã‚’è¿”ã™
      */
     public boolean isMousePushed()
     {
@@ -840,9 +840,9 @@ public class GameCanvas
     }
 
     /**
-     * ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ğ—£‚µ‚½uŠÔ‚©‚Ç‚¤‚©‚ğ’²‚×‚é
+     * ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ã‚’é›¢ã—ãŸç¬é–“ã‹ã©ã†ã‹ã‚’èª¿ã¹ã‚‹
      *
-     * @return ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ğ—£‚µ‚½uŠÔ‚È‚çtrue‚ğ•Ô‚·
+     * @return ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ã‚’é›¢ã—ãŸç¬é–“ãªã‚‰trueã‚’è¿”ã™
      */
     public boolean isMouseReleased()
     {
@@ -850,9 +850,9 @@ public class GameCanvas
     }
 
     /**
-     * ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½ó‘Ô‚©‚Ç‚¤‚©‚ğ’²‚×‚é
+     * ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸçŠ¶æ…‹ã‹ã©ã†ã‹ã‚’èª¿ã¹ã‚‹
      *
-     * @return ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ä‚¢‚½‚çtrue‚ğ•Ô‚·
+     * @return ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã„ãŸã‚‰trueã‚’è¿”ã™
      */
     public boolean isMousePress()
     {
@@ -861,9 +861,9 @@ public class GameCanvas
 
 
 
-    // -------------------- ƒZ[ƒuƒf[ƒ^Œn ------------------//
+    // -------------------- ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ç³» ------------------//
     /**
-     * ƒZ[ƒuƒf[ƒ^‚ğƒtƒ@ƒCƒ‹‚É‘‚«o‚·
+     * ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãå‡ºã™
      */
     private void writeRecord()
     {
@@ -871,7 +871,7 @@ public class GameCanvas
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹‚©‚çƒZ[ƒuƒf[ƒ^‚ğ“Ç‚İ‚Ş
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€
      */
     private void readRecord()
     {
@@ -879,10 +879,10 @@ public class GameCanvas
     }
 
     /**
-     * “Ç‚İ‚ñ‚¾ƒZ[ƒuƒf[ƒ^‚©‚çint’l‚ğ“Ç‚İo‚·
+     * èª­ã¿è¾¼ã‚“ã ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã‹ã‚‰intå€¤ã‚’èª­ã¿å‡ºã™
      *
-     * @param idx ƒf[ƒ^‚ÌƒCƒ“ƒfƒbƒNƒX‚ğw’è
-     * @return w’è‚³‚ê‚½ˆÊ’u‚©‚çƒf[ƒ^‚ğ“Ç‚İo‚µ‚Ä•Ô‚·
+     * @param idx ãƒ‡ãƒ¼ã‚¿ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æŒ‡å®š
+     * @return æŒ‡å®šã•ã‚ŒãŸä½ç½®ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿å‡ºã—ã¦è¿”ã™
      */
     public int load(int idx)
     {
@@ -890,10 +890,10 @@ public class GameCanvas
     }
 
     /**
-     * ƒZ[ƒuƒf[ƒ^ƒoƒbƒtƒ@‚Éƒf[ƒ^‚ğƒZƒbƒg‚·‚é
+     * ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ãƒãƒƒãƒ•ã‚¡ã«ãƒ‡ãƒ¼ã‚¿ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
      *
-     * @param idx ƒf[ƒ^‚ÌƒCƒ“ƒfƒbƒNƒX‚ğw’è
-     * @param param ƒZ[ƒuƒf[ƒ^‚É‘‚«‚Şint’l
+     * @param idx ãƒ‡ãƒ¼ã‚¿ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æŒ‡å®š
+     * @param param ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã«æ›¸ãè¾¼ã‚€intå€¤
      */
     public void save(int idx, int param)
     {
@@ -910,19 +910,19 @@ public class GameCanvas
 
 
 
-    // --------------- “–‚½‚è”»’èŒn ----------------//
+    // --------------- å½“ãŸã‚Šåˆ¤å®šç³» ----------------//
 
     /**
-     * ‹éŒ`‚`‚Æ‹éŒ`‚a‚ª‚Ô‚Â‚©‚Á‚Ä‚¢‚é‚©”»’è‚·‚é
+     * çŸ©å½¢ï¼¡ã¨çŸ©å½¢ï¼¢ãŒã¶ã¤ã‹ã£ã¦ã„ã‚‹ã‹åˆ¤å®šã™ã‚‹
      *
-     * @param x1 ‹éŒ`‚`‚Ì¶ã‚wÀ•W
-     * @param y1 ‹éŒ`‚`‚Ì¶ã‚xÀ•W
-     * @param w1 ‹éŒ`‚`‚Ì•
-     * @param h1 ‹éŒ`‚`‚Ì‚‚³
-     * @param x2 ‹éŒ`‚a‚Ì¶ã‚wÀ•W
-     * @param y2 ‹éŒ`‚a‚Ì¶ã‚xÀ•W
-     * @param w2 ‹éŒ`‚a‚Ì•
-     * @param h2 ‹éŒ`‚a‚Ì‚‚³
+     * @param x1 çŸ©å½¢ï¼¡ã®å·¦ä¸Šï¼¸åº§æ¨™
+     * @param y1 çŸ©å½¢ï¼¡ã®å·¦ä¸Šï¼¹åº§æ¨™
+     * @param w1 çŸ©å½¢ï¼¡ã®å¹…
+     * @param h1 çŸ©å½¢ï¼¡ã®é«˜ã•
+     * @param x2 çŸ©å½¢ï¼¢ã®å·¦ä¸Šï¼¸åº§æ¨™
+     * @param y2 çŸ©å½¢ï¼¢ã®å·¦ä¸Šï¼¹åº§æ¨™
+     * @param w2 çŸ©å½¢ï¼¢ã®å¹…
+     * @param h2 çŸ©å½¢ï¼¢ã®é«˜ã•
      *
      */
     public boolean checkHitRect(int x1, int y1, int w1, int h1, int x2, int y2,
@@ -932,17 +932,17 @@ public class GameCanvas
     }
 
     /**
-     * ‰æ‘œA‚Æ‰æ‘œB‚ğw’èˆÊ’u‚É‘‚¢‚½‚Æ‚µ‚½‚Æ‚«‚É‰æ‘œ“¯m‚ª“–‚½‚Á‚Ä‚¢‚é‚©‚ğŠm‚©‚ß‚é
+     * ç”»åƒAã¨ç”»åƒBã‚’æŒ‡å®šä½ç½®ã«æ›¸ã„ãŸã¨ã—ãŸã¨ãã«ç”»åƒåŒå£«ãŒå½“ãŸã£ã¦ã„ã‚‹ã‹ã‚’ç¢ºã‹ã‚ã‚‹
      *
-     * drawImage‚Å‚à‚µA‰æ‘œA‚Æ‰æ‘œB‚ğ‘‚¢‚½‚Æ‚«‚É
+     * drawImageã§ã‚‚ã—ã€ç”»åƒAã¨ç”»åƒBã‚’æ›¸ã„ãŸã¨ãã«
      *
-     * @param img1 ‰æ‘œA‚ÌID‚ğw’è
-     * @param x1 ‰æ‘œA‚Ì¶ãXÀ•W‚ğw’è
-     * @param y1 ‰æ‘œA‚Ì¶ãYÀ•W‚ğw’è
-     * @param img2 ‰æ‘œB‚ÌID‚ğw’è
-     * @param x2 ‰æ‘œB‚Ì¶ãXÀ•W‚ğw’è
-     * @param y2 ‰æ‘œB‚Ì¶ãYÀ•W‚ğw’è
-     * @return ‰æ‘œ“¯m‚ª“–‚½‚Á‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ğ•Ô‚µ‚Ü‚·
+     * @param img1 ç”»åƒAã®IDã‚’æŒ‡å®š
+     * @param x1 ç”»åƒAã®å·¦ä¸ŠXåº§æ¨™ã‚’æŒ‡å®š
+     * @param y1 ç”»åƒAã®å·¦ä¸ŠYåº§æ¨™ã‚’æŒ‡å®š
+     * @param img2 ç”»åƒBã®IDã‚’æŒ‡å®š
+     * @param x2 ç”»åƒBã®å·¦ä¸ŠXåº§æ¨™ã‚’æŒ‡å®š
+     * @param y2 ç”»åƒBã®å·¦ä¸ŠYåº§æ¨™ã‚’æŒ‡å®š
+     * @return ç”»åƒåŒå£«ãŒå½“ãŸã£ã¦ã„ã‚‹ã‹ã©ã†ã‹ã‚’è¿”ã—ã¾ã™
      */
     public boolean checkHitImage(int img1, int x1, int y1, int img2, int x2,
             int y2)
@@ -953,15 +953,15 @@ public class GameCanvas
     }
 
     /**
-     * ‰~A‚Æ‰~B‚Ì“–‚½‚è”»’è‚ğs‚¤
+     * å††Aã¨å††Bã®å½“ãŸã‚Šåˆ¤å®šã‚’è¡Œã†
      *
-     * @param x1 ‰~A‚Ì’†SXÀ•W
-     * @param y1 ‰~A‚Ì’†SYÀ•W
-     * @param r1 ‰~A‚Ì”¼Œa
-     * @param x2 ‰~B‚Ì’†SXÀ•W
-     * @param y2 ‰~B‚Ì’†SYÀ•W
-     * @param r2 ‰~B‚Ì”¼Œa
-     * @return ‰~A‚Æ‰~B‚ª“–‚½‚Á‚½‚©‚Ç‚¤‚©H
+     * @param x1 å††Aã®ä¸­å¿ƒXåº§æ¨™
+     * @param y1 å††Aã®ä¸­å¿ƒYåº§æ¨™
+     * @param r1 å††Aã®åŠå¾„
+     * @param x2 å††Bã®ä¸­å¿ƒXåº§æ¨™
+     * @param y2 å††Bã®ä¸­å¿ƒYåº§æ¨™
+     * @param r2 å††Bã®åŠå¾„
+     * @return å††Aã¨å††BãŒå½“ãŸã£ãŸã‹ã©ã†ã‹ï¼Ÿ
      */
     public boolean checkHitCircle(int x1, int y1, int r1, int x2, int y2, int r2)
     {
@@ -978,12 +978,12 @@ public class GameCanvas
 
 
 
-    // ----------------- ”ŠwŒn‚Ìƒƒ\ƒbƒh ------------//
+    // ----------------- æ•°å­¦ç³»ã®ãƒ¡ã‚½ãƒƒãƒ‰ ------------//
     /**
-     * •½•ûª(ã)‚ğ‹‚ß‚é
+     * å¹³æ–¹æ ¹(âˆš)ã‚’æ±‚ã‚ã‚‹
      *
-     * @param data •½•ûª‚ğ‹‚ß‚½‚¢”š
-     * @return ˆø”‚Å—^‚¦‚ç‚ê‚½”š‚Ì•½•ûª‚ğ•Ô‚·
+     * @param data å¹³æ–¹æ ¹ã‚’æ±‚ã‚ãŸã„æ•°å­—
+     * @return å¼•æ•°ã§ä¸ãˆã‚‰ã‚ŒãŸæ•°å­—ã®å¹³æ–¹æ ¹ã‚’è¿”ã™
      */
     public double sqrt(double data)
     {
@@ -991,10 +991,10 @@ public class GameCanvas
     }
 
     /**
-     * cos‚ğ‹‚ß‚é
+     * cosã‚’æ±‚ã‚ã‚‹
      *
-     * @param angle Šp“x‚ğw’è‚·‚é(not ŒÊ“x–@)
-     * @return angle‚Ìcos
+     * @param angle è§’åº¦ã‚’æŒ‡å®šã™ã‚‹(not å¼§åº¦æ³•)
+     * @return angleã®cos
      */
     public double cos(double angle)
     {
@@ -1002,10 +1002,10 @@ public class GameCanvas
     }
 
     /**
-     * sin‚ğ‹‚ß‚é
+     * sinã‚’æ±‚ã‚ã‚‹
      *
-     * @param angle Šp“x‚ğw’è‚·‚é(not ŒÊ“x–@)
-     * @return angle‚Ìsin
+     * @param angle è§’åº¦ã‚’æŒ‡å®šã™ã‚‹(not å¼§åº¦æ³•)
+     * @return angleã®sin
      */
     public double sin(double angle)
     {
@@ -1013,11 +1013,11 @@ public class GameCanvas
     }
 
     /**
-     * atan2‚ğ‹‚ß‚é(ƒxƒNƒgƒ‹‚ÌŠp“x‚ğ‹‚ß‚é)
+     * atan2ã‚’æ±‚ã‚ã‚‹(ãƒ™ã‚¯ãƒˆãƒ«ã®è§’åº¦ã‚’æ±‚ã‚ã‚‹)
      *
-     * @param x ƒxƒNƒgƒ‹‚ÌX¬•ª
-     * @param y ƒxƒNƒgƒ‹‚ÌY¬•ª
-     * @return ƒxƒNƒgƒ‹‚ÌŠp“x‚ğ•Ô‚·
+     * @param x ãƒ™ã‚¯ãƒˆãƒ«ã®Xæˆåˆ†
+     * @param y ãƒ™ã‚¯ãƒˆãƒ«ã®Yæˆåˆ†
+     * @return ãƒ™ã‚¯ãƒˆãƒ«ã®è§’åº¦ã‚’è¿”ã™
      */
     public double atan2(double x, double y)
     {
@@ -1034,12 +1034,12 @@ public class GameCanvas
 
 
 
-    // ------------- ƒ}ƒl[ƒWƒƒŠÖŒW --------//
+    // ------------- ãƒãƒãƒ¼ã‚¸ãƒ£é–¢ä¿‚ --------//
 
     /**
-     * ‰æ‘œ‚Ìƒ}ƒl[ƒWƒƒ‚ğƒZƒbƒg
+     * ç”»åƒã®ãƒãƒãƒ¼ã‚¸ãƒ£ã‚’ã‚»ãƒƒãƒˆ
      *
-     * @param manager ƒ}ƒl[ƒWƒƒ
+     * @param manager ãƒãƒãƒ¼ã‚¸ãƒ£
      */
     private void setImageManager(ImageManager manager)
     {
@@ -1047,9 +1047,9 @@ public class GameCanvas
     }
 
     /**
-     * Œø‰Ê‰¹‚Ìƒ}ƒl[ƒWƒƒ‚ğƒZƒbƒg
+     * åŠ¹æœéŸ³ã®ãƒãƒãƒ¼ã‚¸ãƒ£ã‚’ã‚»ãƒƒãƒˆ
      *
-     * @param manager ƒ}ƒl[ƒWƒƒ
+     * @param manager ãƒãƒãƒ¼ã‚¸ãƒ£
      */
     private void setSEManager(SoundManagerInterface manager)
     {
@@ -1059,9 +1059,9 @@ public class GameCanvas
     }
 
     /**
-     * BGM‚Ìƒ}ƒl[ƒWƒƒ‚ğƒZƒbƒg
+     * BGMã®ãƒãƒãƒ¼ã‚¸ãƒ£ã‚’ã‚»ãƒƒãƒˆ
      *
-     * @param manager ƒ}ƒl[ƒWƒƒ
+     * @param manager ãƒãƒãƒ¼ã‚¸ãƒ£
      */
     private void setBGMManager(SoundManagerInterface manager)
     {

@@ -3,29 +3,29 @@ package gameCanvasUtil.Resource;
 import javax.sound.sampled.*;
 
 /**
- * ƒIƒ“ƒƒ‚ƒŠwav‚ÌƒTƒEƒ“ƒhƒ}ƒl[ƒWƒƒ
+ * ã‚ªãƒ³ãƒ¡ãƒ¢ãƒªwavã®ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒãƒ¼ã‚¸ãƒ£
  *
- * ˜A”Ô‚ÌƒTƒEƒ“ƒhƒtƒ@ƒCƒ‹‚ğƒIƒ“ƒƒ‚ƒŠ‚É“Ç‚İ‚ñ‚ÅŠÇ—‚ğs‚¤
+ * é€£ç•ªã®ã‚µã‚¦ãƒ³ãƒ‰ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚ªãƒ³ãƒ¡ãƒ¢ãƒªã«èª­ã¿è¾¼ã‚“ã§ç®¡ç†ã‚’è¡Œã†
  */
 public class SoundManager implements SoundManagerInterface
 {
-    // ƒŠƒ\[ƒX”(”z—ñ‚Ì—v‘f”)
+    // ãƒªã‚½ãƒ¼ã‚¹æ•°(é…åˆ—ã®è¦ç´ æ•°)
     private int resourceNum;
 
-    // ƒTƒEƒ“ƒh‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒg
+    // ã‚µã‚¦ãƒ³ãƒ‰ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     private Clip audio[] = null;
 
-    // ƒVƒ“ƒOƒ‹ƒgƒ“ƒCƒ“ƒXƒ^ƒ“ƒX
+    // ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
     private static SoundManager instance = null;
 
-    // ƒvƒ‰ƒCƒx[ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^
+    // ãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
     private void SoundManager()
     {
         resourceNum = 0;
     }
 
     /**
-     * @return ƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·
+     * @return ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™
      */
     public static SoundManager getInstance()
     {
@@ -35,8 +35,8 @@ public class SoundManager implements SoundManagerInterface
     }
 
     /**
-     * ‰Šú‰»BƒŠƒ\[ƒX‚ğ‚Ü‚Æ‚ß‚Äƒ[ƒh‚·‚é
-     * @param base_file_path “Ç‚İ‚Ş˜A”Ôƒtƒ@ƒCƒ‹–¼‚Ìw’è(xxx0.wav‚ÌAxxx‚Ì•”•ª)
+     * åˆæœŸåŒ–ã€‚ãƒªã‚½ãƒ¼ã‚¹ã‚’ã¾ã¨ã‚ã¦ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
+     * @param base_file_path èª­ã¿è¾¼ã‚€é€£ç•ªãƒ•ã‚¡ã‚¤ãƒ«åã®æŒ‡å®š(xxx0.wavã®ã€xxxã®éƒ¨åˆ†)
      */
     public void init(String base_file_path)
     {
@@ -44,9 +44,9 @@ public class SoundManager implements SoundManagerInterface
     }
 
     /**
-     * ˜A”Ô‚Ìwavƒtƒ@ƒCƒ‹‚ğAƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚­‚È‚é‚Ü‚Å“Ç‚Ş
+     * é€£ç•ªã®wavãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã€ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªããªã‚‹ã¾ã§èª­ã‚€
      *
-     * @param base_file_path “Ç‚İ‚Ş˜A”Ôƒtƒ@ƒCƒ‹–¼‚Ìw’è(xxx0.wav‚ÌAxxx‚Ì•”•ª)
+     * @param base_file_path èª­ã¿è¾¼ã‚€é€£ç•ªãƒ•ã‚¡ã‚¤ãƒ«åã®æŒ‡å®š(xxx0.wavã®ã€xxxã®éƒ¨åˆ†)
      */
     private void loadNumberingSound(String base_file_path)
     {
@@ -65,10 +65,10 @@ public class SoundManager implements SoundManagerInterface
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹–¼‚©‚çƒNƒŠƒbƒv‚ğƒ[ƒh‚·‚é
+     * ãƒ•ã‚¡ã‚¤ãƒ«åã‹ã‚‰ã‚¯ãƒªãƒƒãƒ—ã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
      *
-     * @param file_name ƒtƒ@ƒCƒ‹–¼
-     * @return ¶¬‚µ‚½ƒNƒŠƒbƒv
+     * @param file_name ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @return ç”Ÿæˆã—ãŸã‚¯ãƒªãƒƒãƒ—
      */
     private Clip loadSound(String file_name)
     {
@@ -94,41 +94,41 @@ public class SoundManager implements SoundManagerInterface
     }
 
     /**
-     * ƒTƒEƒ“ƒh‚ğÄ¶‚·‚é
+     * ã‚µã‚¦ãƒ³ãƒ‰ã‚’å†ç”Ÿã™ã‚‹
      *
-     * @param id Ä¶‚·‚é‰¹‚ÌID
-     * @param loop true‚È‚çƒ‹[ƒv‚ğs‚¤
+     * @param id å†ç”Ÿã™ã‚‹éŸ³ã®ID
+     * @param loop trueãªã‚‰ãƒ«ãƒ¼ãƒ—ã‚’è¡Œã†
      */
     public void playSound(int id, boolean loop)
     {
         try
         {
-            /* MacŠÂ‹«‚Å–â‘è‚ª‚ ‚Á‚½‚Ì‚ÅƒRƒƒ“ƒgƒAƒEƒg
-            // Ä¶’†‚È‚ç’â~‚·‚é
+            /* Macç’°å¢ƒã§å•é¡ŒãŒã‚ã£ãŸã®ã§ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆ
+            // å†ç”Ÿä¸­ãªã‚‰åœæ­¢ã™ã‚‹
             if (audio[id].isActive())
             {
                 this.stopSound(id);
             }
 
-            // Ä¶I—¹ó‘Ô(Œ»İˆÊ’u‚ª––”ö‚Å‚ ‚é)‚È‚çæ“ª‚ÉƒV[ƒN
+            // å†ç”Ÿçµ‚äº†çŠ¶æ…‹(ç¾åœ¨ä½ç½®ãŒæœ«å°¾ã§ã‚ã‚‹)ãªã‚‰å…ˆé ­ã«ã‚·ãƒ¼ã‚¯
             if (audio[id].getFrameLength() == audio[id].getFramePosition())
             {
                 audio[id].setFramePosition(0);
             }
             */
-            // ’â~‚µ‚Ä
+            // åœæ­¢ã—ã¦
             this.stopSound(id);
-            // æ“ª‚ÉƒV[ƒN
+            // å…ˆé ­ã«ã‚·ãƒ¼ã‚¯
             audio[id].setFramePosition(0);
 
             if (loop)
             {
-                // ƒ‹[ƒvÄ¶‚ğs‚¤
+                // ãƒ«ãƒ¼ãƒ—å†ç”Ÿã‚’è¡Œã†
                 audio[id].loop(Clip.LOOP_CONTINUOUSLY);
             }
             else
             {
-                // ’Pˆê‰ñÄ¶‚ğs‚¤
+                // å˜ä¸€å›å†ç”Ÿã‚’è¡Œã†
                 audio[id].start();
             }
         }
@@ -139,18 +139,18 @@ public class SoundManager implements SoundManagerInterface
     }
 
     /**
-     * ƒTƒEƒ“ƒh‚ğ’â~‚·‚é
+     * ã‚µã‚¦ãƒ³ãƒ‰ã‚’åœæ­¢ã™ã‚‹
      *
-     * @param id ’â~‚·‚éƒTƒEƒ“ƒh‚ÌID
+     * @param id åœæ­¢ã™ã‚‹ã‚µã‚¦ãƒ³ãƒ‰ã®ID
      */
     public void stopSound(int id)
     {
         try
         {
-            // ’â~‚³‚¹‚Ä
+            // åœæ­¢ã•ã›ã¦
             audio[id].stop();
 
-            // æ“ª‚ÉƒV[ƒN‚·‚é
+            // å…ˆé ­ã«ã‚·ãƒ¼ã‚¯ã™ã‚‹
             audio[id].setFramePosition(0);
         }
         catch (Exception e)
@@ -160,9 +160,9 @@ public class SoundManager implements SoundManagerInterface
     }
 
     /**
-     * ƒTƒEƒ“ƒh‚ğˆê’â~‚·‚é
+     * ã‚µã‚¦ãƒ³ãƒ‰ã‚’ä¸€æ™‚åœæ­¢ã™ã‚‹
      *
-     * @param id ˆê’â~‚·‚éƒTƒEƒ“ƒh‚ÌID
+     * @param id ä¸€æ™‚åœæ­¢ã™ã‚‹ã‚µã‚¦ãƒ³ãƒ‰ã®ID
      */
     public void pauseSound(int id)
     {
@@ -177,7 +177,7 @@ public class SoundManager implements SoundManagerInterface
     }
 
     /**
-     * ‘S‚Ä‚ÌƒTƒEƒ“ƒh‚ğˆê’â~‚·‚é
+     * å…¨ã¦ã®ã‚µã‚¦ãƒ³ãƒ‰ã‚’ä¸€æ™‚åœæ­¢ã™ã‚‹
      */
     public void pauseSound()
     {
@@ -188,7 +188,7 @@ public class SoundManager implements SoundManagerInterface
     }
 
     /**
-     * ‘S‚Ä‚ÌƒTƒEƒ“ƒh‚ğ’â~‚·‚é
+     * å…¨ã¦ã®ã‚µã‚¦ãƒ³ãƒ‰ã‚’åœæ­¢ã™ã‚‹
      */
     public void stopSound()
     {
@@ -199,7 +199,7 @@ public class SoundManager implements SoundManagerInterface
     }
 
     /**
-     * ‘S‚Ä‚ÌƒTƒEƒ“ƒh‚Ì‰¹—Ê•ÏX
+     * å…¨ã¦ã®ã‚µã‚¦ãƒ³ãƒ‰ã®éŸ³é‡å¤‰æ›´
      */
     public void changeVolume(int vol)
     {
@@ -210,10 +210,10 @@ public class SoundManager implements SoundManagerInterface
     }
 
     /**
-     * ƒTƒEƒ“ƒh‚Ì‰¹—Ê‚ğ•ÏX‚·‚é
+     * ã‚µã‚¦ãƒ³ãƒ‰ã®éŸ³é‡ã‚’å¤‰æ›´ã™ã‚‹
      *
-     * @param id ‰¹—Ê‚ğ•ÏX‚·‚éƒTƒEƒ“ƒh‚ÌID
-     * @param vol ‰¹‚Ì‘å‚«‚³‚ğw’è(0-100)
+     * @param id éŸ³é‡ã‚’å¤‰æ›´ã™ã‚‹ã‚µã‚¦ãƒ³ãƒ‰ã®ID
+     * @param vol éŸ³ã®å¤§ãã•ã‚’æŒ‡å®š(0-100)
      */
     public void changeVolume(int id, int vol)
     {
@@ -232,7 +232,7 @@ public class SoundManager implements SoundManagerInterface
     }
 
     /**
-     * ƒTƒEƒ“ƒh‚ÌXVˆ—(‰½‚à‚µ‚È‚¢)
+     * ã‚µã‚¦ãƒ³ãƒ‰ã®æ›´æ–°å‡¦ç†(ä½•ã‚‚ã—ãªã„)
      */
     public void update()
     {

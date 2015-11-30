@@ -6,11 +6,11 @@ import java.awt.event.*;
 import javax.swing.JFrame;
 
 /**
- * ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒƒCƒ“•”•ª(‘S‚Ä‚Í‚±‚±‚©‚çn‚Ü‚é)
+ * ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒ¡ã‚¤ãƒ³éƒ¨åˆ†(å…¨ã¦ã¯ã“ã“ã‹ã‚‰å§‹ã¾ã‚‹)
  *
- * ƒXƒŒƒbƒhAEventˆ—‚Æ‚©‚ğˆêè‚Éˆø‚«ó‚¯‚éƒNƒ‰ƒX ‚Æ‚¢‚¢‚Â‚ÂA‚â‚é‚±‚Æ‚ÍŠî–{‘¼‚É‚½‚ç‚¢‚Ü‚í‚µB
+ * ã‚¹ãƒ¬ãƒƒãƒ‰ã€Eventå‡¦ç†ã¨ã‹ã‚’ä¸€æ‰‹ã«å¼•ãå—ã‘ã‚‹ã‚¯ãƒ©ã‚¹ ã¨ã„ã„ã¤ã¤ã€ã‚„ã‚‹ã“ã¨ã¯åŸºæœ¬ä»–ã«ãŸã‚‰ã„ã¾ã‚ã—ã€‚
  *
- * ‚ ‚ÆAƒEƒCƒ“ƒhƒE‚»‚Ì‚à‚Ì‚ÌƒNƒ‰ƒX
+ * ã‚ã¨ã€ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãã®ã‚‚ã®ã®ã‚¯ãƒ©ã‚¹
  */
 
 public class GameApp extends JFrame implements WindowListener, Runnable
@@ -18,22 +18,22 @@ public class GameApp extends JFrame implements WindowListener, Runnable
     // / serialVersionUID
     private static final long serialVersionUID = 1L;
 
-    // / ŠÔŠÇ—‚ğs‚¤ƒIƒuƒWƒFƒNƒg
+    // / æ™‚é–“ç®¡ç†ã‚’è¡Œã†ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     private FPSManager timer = null;
 
-    // / ‰æ–Ê‚»‚Ì‚à‚Ì‚ÌƒIƒuƒWƒFƒNƒg
+    // / ç”»é¢ãã®ã‚‚ã®ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     private AppCanvas canvas = null;
 
-    // / ƒXƒŒƒbƒh
+    // / ã‚¹ãƒ¬ãƒƒãƒ‰
     private Thread th = null;
 
-    // false‚É‚È‚Á‚½‚çƒXƒŒƒbƒhƒ‹[ƒv‚ğ”²‚¯‚é
+    // falseã«ãªã£ãŸã‚‰ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ã‚‹
     private boolean thFlag = true;
 
     /**
-     * ƒQ[ƒ€ƒ‚[ƒh
+     * ã‚²ãƒ¼ãƒ ãƒ¢ãƒ¼ãƒ‰
      *
-     * @param args ˆø”
+     * @param args å¼•æ•°
      */
     public static void main(String[] args)
     {
@@ -41,7 +41,7 @@ public class GameApp extends JFrame implements WindowListener, Runnable
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^ ƒEƒCƒ“ƒhƒE‚Ì‘å‚«‚³İ’è‚È‚Ç‚ğs‚Á‚Ä‚Ü‚·B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®å¤§ãã•è¨­å®šãªã©ã‚’è¡Œã£ã¦ã¾ã™ã€‚
      */
     private GameApp()
     {
@@ -50,25 +50,25 @@ public class GameApp extends JFrame implements WindowListener, Runnable
         timer.init(GameCanvas.CONFIG_FPS);
         GameCanvas.getInstance().init(this, new Game());
 
-        // ƒŠƒTƒCƒY•s‰Â‚É
+        // ãƒªã‚µã‚¤ã‚ºä¸å¯ã«
         setResizable(false);
-        // •Â‚¶‚éƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½Û‚Ìˆ—
+        // é–‰ã˜ã‚‹ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸéš›ã®å‡¦ç†
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // ƒŠƒXƒi[‚É©g‚ğ“o˜^
+        // ãƒªã‚¹ãƒŠãƒ¼ã«è‡ªèº«ã‚’ç™»éŒ²
         addWindowListener(this);
 
-        // ƒRƒ“ƒ|[ƒlƒ“ƒg’Ç‰Á
+        // ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆè¿½åŠ 
         canvas = new AppCanvas();
         add(this.canvas, BorderLayout.CENTER);
 
-        /* pack -> setPreferredSize ‚Ì‡‚ÉÀs‚·‚é‚ÆƒTƒCƒYİ’è‚ª‚¤‚Ü‚­‚¢‚­ */
-        // ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌƒTƒCƒY‚É‡‚í‚¹‚ÄƒTƒCƒY‚ğ•ÏX‚·‚é
+        /* pack -> setPreferredSize ã®é †ã«å®Ÿè¡Œã™ã‚‹ã¨ã‚µã‚¤ã‚ºè¨­å®šãŒã†ã¾ãã„ã */
+        // ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ã‚µã‚¤ã‚ºã«åˆã‚ã›ã¦ã‚µã‚¤ã‚ºã‚’å¤‰æ›´ã™ã‚‹
         pack();
 
-        // ƒRƒ“ƒ|[ƒlƒ“ƒg’Ç‰ÁŒã‚ÉA“à‘¤‚ÌƒTƒCƒYiƒEƒCƒ“ƒhƒE˜g‚ğ‚Ì‚¼‚¢‚½ƒTƒCƒYj‚©‚çƒEƒCƒ“ƒhƒEƒTƒCƒY‚ğw’è
+        // ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆè¿½åŠ å¾Œã«ã€å†…å´ã®ã‚µã‚¤ã‚ºï¼ˆã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦æ ã‚’ã®ãã„ãŸã‚µã‚¤ã‚ºï¼‰ã‹ã‚‰ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºã‚’æŒ‡å®š
         setPreferredSize(new Dimension(GameCanvas.WIDTH, GameCanvas.HEIGHT));
 
-        // ƒEƒCƒ“ƒhƒE‚ğ•\¦
+        // ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚’è¡¨ç¤º
         setVisible(true);
 
         th = new Thread(this);
@@ -76,18 +76,18 @@ public class GameApp extends JFrame implements WindowListener, Runnable
     }
 
     /**
-     * Window‚ªoŒ»‚µ‚½‚Æ‚«ŒÄ‚Ño‚³‚ê‚é
+     * WindowãŒå‡ºç¾ã—ãŸã¨ãå‘¼ã³å‡ºã•ã‚Œã‚‹
      *
-     * @param evt ƒEƒCƒ“ƒhƒE‚ÌƒCƒxƒ“ƒg
+     * @param evt ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public void windowOpened(WindowEvent evt)
     {
     }
 
     /**
-     * Window‚Ì~ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚Æ‚«ŒÄ‚Ño‚³‚ê‚é
+     * Windowã®Ã—ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸã¨ãå‘¼ã³å‡ºã•ã‚Œã‚‹
      *
-     * @param evt ƒEƒCƒ“ƒhƒE‚ÌƒCƒxƒ“ƒg
+     * @param evt ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public void windowClosing(WindowEvent evt)
     {
@@ -96,52 +96,52 @@ public class GameApp extends JFrame implements WindowListener, Runnable
     }
 
     /**
-     * Window‚ª•Â‚¶‚é‚Æ‚«ŒÄ‚Ño‚³‚ê‚é
+     * WindowãŒé–‰ã˜ã‚‹ã¨ãå‘¼ã³å‡ºã•ã‚Œã‚‹
      *
-     * @param evt ƒEƒCƒ“ƒhƒE‚ÌƒCƒxƒ“ƒg
+     * @param evt ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public void windowClosed(WindowEvent evt)
     {
     }
 
     /**
-     * Window‚ªÅ¬‰»‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚é
+     * WindowãŒæœ€å°åŒ–ã•ã‚ŒãŸã¨ãã«å‘¼ã³å‡ºã•ã‚Œã‚‹
      *
-     * @param evt ƒEƒCƒ“ƒhƒE‚ÌƒCƒxƒ“ƒg
+     * @param evt ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public void windowIconified(WindowEvent evt)
     {
     }
 
     /**
-     * Window‚ªÅ¬‰»‚³‚ê‚½ó‘Ô‚©‚ç–ß‚Á‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚é
+     * WindowãŒæœ€å°åŒ–ã•ã‚ŒãŸçŠ¶æ…‹ã‹ã‚‰æˆ»ã£ãŸã¨ãã«å‘¼ã³å‡ºã•ã‚Œã‚‹
      *
-     * @param evt ƒEƒCƒ“ƒhƒE‚ÌƒCƒxƒ“ƒg
+     * @param evt ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public void windowDeiconified(WindowEvent evt)
     {
     }
 
     /**
-     * Window‚ªƒAƒNƒeƒBƒu‚É‚È‚Á‚½‚Æ‚«ŒÄ‚Ño‚³‚ê‚éB
+     * WindowãŒã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã«ãªã£ãŸã¨ãå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚
      *
-     * @param evt ƒEƒCƒ“ƒhƒE‚ÌƒCƒxƒ“ƒg
+     * @param evt ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public void windowActivated(WindowEvent evt)
     {
     }
 
     /**
-     * Window‚ªƒAƒNƒeƒBƒu‚¶‚á‚È‚­‚È‚Á‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚éB
+     * WindowãŒã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã˜ã‚ƒãªããªã£ãŸã¨ãã«å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚
      *
-     * @param evt ƒEƒCƒ“ƒhƒE‚ÌƒCƒxƒ“ƒg
+     * @param evt ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public void windowDeactivated(WindowEvent evt)
     {
     }
 
     /**
-     * ƒƒCƒ“‚ÌƒXƒŒƒbƒh
+     * ãƒ¡ã‚¤ãƒ³ã®ã‚¹ãƒ¬ãƒƒãƒ‰
      */
     public void run()
     {

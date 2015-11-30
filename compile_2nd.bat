@@ -1,5 +1,5 @@
 del Game.class
-javac Game.java -encoding SJIS
+javac Game.java -encoding UTF8
 
 if not exist Game.class goto GAME_CLASS_ERROR
 jar -cfmv GameApp.jar META-INF\MAINIFEST.MF *.class gameCanvasUtil\*.class res\* gameCanvasUtil\Collision\*.class  gameCanvasUtil\Resource\*.class

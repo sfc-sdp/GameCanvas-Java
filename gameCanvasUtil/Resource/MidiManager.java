@@ -5,38 +5,38 @@ import java.io.*;
 import javax.sound.midi.*;
 
 /**
- * MIDI‚ğŠÇ—‚µAÄ¶‚È‚Ç‚ğs‚¤
+ * MIDIã‚’ç®¡ç†ã—ã€å†ç”Ÿãªã©ã‚’è¡Œã†
  *
  */
 public class MidiManager implements SoundManagerInterface
 {
-    // ƒŠƒ\[ƒX”(”z—ñ‚Ì—v‘f”)
+    // ãƒªã‚½ãƒ¼ã‚¹æ•°(é…åˆ—ã®è¦ç´ æ•°)
     private int resourceNum;
 
-    // ‰¹‚ğ–Â‚ç‚·ƒV[ƒPƒ“ƒT[
+    // éŸ³ã‚’é³´ã‚‰ã™ã‚·ãƒ¼ã‚±ãƒ³ã‚µãƒ¼
     private Sequencer sequencer[] = null;
     private Synthesizer synthesizer = null;
 
-    // ‰¹‚²‚Æ‚Éƒ‹[ƒv‚·‚é‚©‚Ìƒtƒ‰ƒO
+    // éŸ³ã”ã¨ã«ãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹ã®ãƒ•ãƒ©ã‚°
     private boolean loopFlag[] = null;
 
-    // ‰¹‚²‚Æ‚Ì‰¹—Ê
+    // éŸ³ã”ã¨ã®éŸ³é‡
     private int volume[] = null;
 
-    // MIDI‚Ìd—l‚ÅAƒTƒEƒ“ƒh‰¹—Ê•ÏX–½—ß
+    // MIDIã®ä»•æ§˜ã§ã€ã‚µã‚¦ãƒ³ãƒ‰éŸ³é‡å¤‰æ›´å‘½ä»¤
     private static final int CHANGE_VOLUME = 7;
 
-    // ƒVƒ“ƒOƒ‹ƒgƒ“ƒCƒ“ƒXƒ^ƒ“ƒX
+    // ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
     private static MidiManager instance = null;
 
-    // ƒvƒ‰ƒCƒx[ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^
+    // ãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
     private void MidiManager()
     {
         resourceNum = 0;
     }
 
     /**
-     * @return ƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·
+     * @return ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™
      */
     public static MidiManager getInstance()
     {
@@ -46,8 +46,8 @@ public class MidiManager implements SoundManagerInterface
     }
 
     /**
-     * ‰Šú‰»BƒŠƒ\[ƒX‚ğ‚Ü‚Æ‚ß‚Äƒ[ƒh‚·‚é
-     * @param base_file_path “Ç‚İ‚Ş˜A”Ôƒtƒ@ƒCƒ‹–¼‚Ìw’è(xxx0.mid‚ÌAxxx‚Ì•”•ª)
+     * åˆæœŸåŒ–ã€‚ãƒªã‚½ãƒ¼ã‚¹ã‚’ã¾ã¨ã‚ã¦ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
+     * @param base_file_path èª­ã¿è¾¼ã‚€é€£ç•ªãƒ•ã‚¡ã‚¤ãƒ«åã®æŒ‡å®š(xxx0.midã®ã€xxxã®éƒ¨åˆ†)
      */
     public void init(String base_file_path)
     {
@@ -56,9 +56,9 @@ public class MidiManager implements SoundManagerInterface
     }
 
     /**
-     * ˜A”Ô‚ÌMIDIƒtƒ@ƒCƒ‹‚ğƒ[ƒh‚·‚é
+     * é€£ç•ªã®MIDIãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
      *
-     * @param base_file_path “Ç‚İ‚Ş˜A”Ôƒtƒ@ƒCƒ‹–¼‚Ìw’è(xxx0.mid‚ÌAxxx‚Ì•”•ª)
+     * @param base_file_path èª­ã¿è¾¼ã‚€é€£ç•ªãƒ•ã‚¡ã‚¤ãƒ«åã®æŒ‡å®š(xxx0.midã®ã€xxxã®éƒ¨åˆ†)
      */
     private void loadNumberingMidi(String base_file_path)
     {
@@ -79,10 +79,10 @@ public class MidiManager implements SoundManagerInterface
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹–¼‚©‚çMIDI‚ğƒ[ƒh‚·‚é
+     * ãƒ•ã‚¡ã‚¤ãƒ«åã‹ã‚‰MIDIã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
      *
-     * @param file_name ƒtƒ@ƒCƒ‹–¼
-     * @return “Ç‚İ‚ñ‚¾MIDIƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·
+     * @param file_name ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @return èª­ã¿è¾¼ã‚“ã MIDIã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™
      */
     private Sequencer loadMidi(String file_name)
     {
@@ -106,10 +106,10 @@ public class MidiManager implements SoundManagerInterface
     }
 
     /**
-     * MIDI‚ğÄ¶‚·‚é
+     * MIDIã‚’å†ç”Ÿã™ã‚‹
      *
-     * @param id MIDI‚ÌID‚ğw’è
-     * @param flag ƒ‹[ƒv‚ğs‚¤‚©‚ğƒZƒbƒgBs‚¤‚È‚çtrueB
+     * @param id MIDIã®IDã‚’æŒ‡å®š
+     * @param flag ãƒ«ãƒ¼ãƒ—ã‚’è¡Œã†ã‹ã‚’ã‚»ãƒƒãƒˆã€‚è¡Œã†ãªã‚‰trueã€‚
      */
     public void playSound(int id, boolean flag)
     {
@@ -125,9 +125,9 @@ public class MidiManager implements SoundManagerInterface
     }
 
     /**
-     * MIDI‚ğˆê’â~‚·‚é
+     * MIDIã‚’ä¸€æ™‚åœæ­¢ã™ã‚‹
      *
-     * @param id ’â~‚³‚¹‚éMIDI‚ğw’è‚·‚é
+     * @param id åœæ­¢ã•ã›ã‚‹MIDIã‚’æŒ‡å®šã™ã‚‹
      */
     public void pauseSound(int id)
     {
@@ -142,9 +142,9 @@ public class MidiManager implements SoundManagerInterface
     }
 
     /**
-     * MIDI‚ğ’â~‚³‚¹‚é
+     * MIDIã‚’åœæ­¢ã•ã›ã‚‹
      *
-     * @param id ’â~‚³‚¹‚éMIDI‚ğw’è‚·‚é
+     * @param id åœæ­¢ã•ã›ã‚‹MIDIã‚’æŒ‡å®šã™ã‚‹
      */
     public void stopSound(int id)
     {
@@ -160,10 +160,10 @@ public class MidiManager implements SoundManagerInterface
     }
 
     /**
-     * MIDI‚Ì‰¹—Ê‚ğƒZƒbƒg
+     * MIDIã®éŸ³é‡ã‚’ã‚»ãƒƒãƒˆ
      *
-     * @param id MIDI‚ÌIDw’è
-     * @param vol ‰¹—Ê‚ğw’è(0-100)
+     * @param id MIDIã®IDæŒ‡å®š
+     * @param vol éŸ³é‡ã‚’æŒ‡å®š(0-100)
      */
     public void changeVolume(int id, int vol)
     {
@@ -186,10 +186,10 @@ public class MidiManager implements SoundManagerInterface
     }
 
     /**
-     * MIDI‚Ì‰¹—Ê‚ğƒZƒbƒg
+     * MIDIã®éŸ³é‡ã‚’ã‚»ãƒƒãƒˆ
      *
-     * @param id MIDI‚ÌIDw’è
-     * @param vol ‰¹—Ê‚ğw’è(0-100)
+     * @param id MIDIã®IDæŒ‡å®š
+     * @param vol éŸ³é‡ã‚’æŒ‡å®š(0-100)
      */
     private void setVolume(int id, int vol)
     {
@@ -237,7 +237,7 @@ public class MidiManager implements SoundManagerInterface
     }
 
     /**
-     * ƒTƒEƒ“ƒh‚ÌXVˆ—
+     * ã‚µã‚¦ãƒ³ãƒ‰ã®æ›´æ–°å‡¦ç†
      */
     public void update()
     {
@@ -263,7 +263,7 @@ public class MidiManager implements SoundManagerInterface
     }
 
     /**
-     * ‘S‚Ä‚ÌƒTƒEƒ“ƒh‚ğˆê’â~‚·‚é
+     * å…¨ã¦ã®ã‚µã‚¦ãƒ³ãƒ‰ã‚’ä¸€æ™‚åœæ­¢ã™ã‚‹
      */
     public void pauseSound()
     {
@@ -274,7 +274,7 @@ public class MidiManager implements SoundManagerInterface
     }
 
     /**
-     * ‘S‚Ä‚ÌƒTƒEƒ“ƒh‚ğ’â~‚·‚é
+     * å…¨ã¦ã®ã‚µã‚¦ãƒ³ãƒ‰ã‚’åœæ­¢ã™ã‚‹
      */
     public void stopSound()
     {
@@ -285,7 +285,7 @@ public class MidiManager implements SoundManagerInterface
     }
 
     /**
-     * ‘S‚Ä‚ÌƒTƒEƒ“ƒh‚Ì‰¹—Ê‚ğ•ÏX‚·‚é
+     * å…¨ã¦ã®ã‚µã‚¦ãƒ³ãƒ‰ã®éŸ³é‡ã‚’å¤‰æ›´ã™ã‚‹
      */
     public void changeVolume(int vol)
     {
@@ -296,7 +296,7 @@ public class MidiManager implements SoundManagerInterface
     }
 
     /**
-     * ƒVƒ“ƒZƒTƒCƒU[‚Ì‰Šú‰»
+     * ã‚·ãƒ³ã‚»ã‚µã‚¤ã‚¶ãƒ¼ã®åˆæœŸåŒ–
      */
     private void initSynthesizer()
     {

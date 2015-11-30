@@ -1,20 +1,20 @@
 package gameCanvasUtil;
 
 /**
- * game‚ÌƒCƒ“ƒ^[ƒtƒF[ƒXƒNƒ‰ƒX‚Å‚·B
- * gameCanvas‚É“o˜^‚µ‚ÄAupdateGame“™‚Ìƒƒ\ƒbƒhŒÄ‚Ño‚µ‚ğs‚È‚¢‚Ü‚·
+ * gameã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
+ * gameCanvasã«ç™»éŒ²ã—ã¦ã€updateGameç­‰ã®ãƒ¡ã‚½ãƒƒãƒ‰å‘¼ã³å‡ºã—ã‚’è¡Œãªã„ã¾ã™
  */
 public interface GameInterface
 {
-    /** XVˆ— */
+    /** æ›´æ–°å‡¦ç† */
     public void updateGame();
 
-    /** •`‰æˆ— */
+    /** æç”»å‡¦ç† */
     public void drawGame();
 
-    /** ‰Šú‰»ˆ— */
+    /** åˆæœŸåŒ–å‡¦ç† */
     public void initGame();
 
-    /** I—¹ˆ— */
+    /** çµ‚äº†å‡¦ç† */
     public void finalGame();
 }

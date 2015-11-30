@@ -4,15 +4,15 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 /**
- * ƒL[“ü—ÍAƒ}ƒEƒX“ü—Í‚ÌŠÇ—‚ğs‚¤ƒNƒ‰ƒX
+ * ã‚­ãƒ¼å…¥åŠ›ã€ãƒã‚¦ã‚¹å…¥åŠ›ã®ç®¡ç†ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹
  *
- * å‚Èd–‚ÍƒCƒxƒ“ƒg‚Å—ˆ‚½‚à‚Ì‚ğƒoƒbƒtƒ@‚·‚é‚±‚ÆB
+ * ä¸»ãªä»•äº‹ã¯ã‚¤ãƒ™ãƒ³ãƒˆã§æ¥ãŸã‚‚ã®ã‚’ãƒãƒƒãƒ•ã‚¡ã™ã‚‹ã“ã¨ã€‚
  *
  */
 public class InputManager
 {
 
-    // ƒL[‚ÌŠÖ˜A
+    // ã‚­ãƒ¼ã®é–¢é€£
     public static final int BUTTON_UP = 0;
     public static final int BUTTON_DOWN = 1;
     public static final int BUTTON_LEFT = 2;
@@ -33,21 +33,21 @@ public class InputManager
             KeyEvent.VK_C, KeyEvent.VK_V, KeyEvent.VK_ENTER, KeyEvent.VK_A,
             KeyEvent.VK_S, KeyEvent.VK_SPACE, };
 
-    // ƒL[“ü—Íî•ñ‚Ìƒoƒbƒtƒ@ƒŠƒ“ƒO‚Ìˆ×‚Ég—p
+    // ã‚­ãƒ¼å…¥åŠ›æƒ…å ±ã®ãƒãƒƒãƒ•ã‚¡ãƒªãƒ³ã‚°ã®ç‚ºã«ä½¿ç”¨
     private int Push_Key_State[] = null;
     private boolean keyReleaseFlag[] = null;
     private boolean keyPushFlag[] = null;
 
-    // ƒ}ƒEƒX‚ÌÀ•W
+    // ãƒã‚¦ã‚¹ã®åº§æ¨™
     private int mouse_x, mouse_y;
-    // ƒ}ƒEƒX‚ÌƒNƒŠƒbƒNŠÔ
+    // ãƒã‚¦ã‚¹ã®ã‚¯ãƒªãƒƒã‚¯æ™‚é–“
     private int mouse_click_time;
 
-    // ƒVƒ“ƒOƒ‹ƒgƒ“—pƒIƒuƒWƒFƒNƒg
+    // ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ç”¨ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     private static InputManager instance = null;
 
     /**
-     * @return ƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·
+     * @return ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™
      */
     public static InputManager getInstance()
     {
@@ -57,7 +57,7 @@ public class InputManager
     }
 
     /**
-     * ƒvƒ‰ƒCƒx[ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     private InputManager()
     {
@@ -70,9 +70,9 @@ public class InputManager
     }
 
     /**
-     * ƒ}ƒEƒX‚ª“ü‚Á‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚éƒƒ\ƒbƒh
+     * ãƒã‚¦ã‚¹ãŒå…¥ã£ãŸã¨ãã«å‘¼ã°ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
      *
-     * @param e ƒ}ƒEƒXƒCƒxƒ“ƒgƒIƒuƒWƒFƒNƒg
+     * @param e ãƒã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public void mouseEntered(MouseEvent e)
     {
@@ -81,9 +81,9 @@ public class InputManager
     }
 
     /**
-     * ƒ}ƒEƒX‚ªo‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚éƒƒ\ƒbƒh
+     * ãƒã‚¦ã‚¹ãŒå‡ºãŸã¨ãã«å‘¼ã°ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
      *
-     * @param e ƒ}ƒEƒXƒCƒxƒ“ƒgƒIƒuƒWƒFƒNƒg
+     * @param e ãƒã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public void mouseExited(MouseEvent e)
     {
@@ -92,9 +92,9 @@ public class InputManager
     }
 
     /**
-     * ƒ}ƒEƒX‚ªƒNƒŠƒbƒN‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒƒ\ƒbƒh
+     * ãƒã‚¦ã‚¹ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã«å‘¼ã°ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
      *
-     * @param e ƒ}ƒEƒXƒCƒxƒ“ƒgƒIƒuƒWƒFƒNƒg
+     * @param e ãƒã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public void mouseClicked(MouseEvent e)
     {
@@ -104,9 +104,9 @@ public class InputManager
     }
 
     /**
-     * ƒ}ƒEƒX‚ª‰Ÿ‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚éƒƒ\ƒbƒh
+     * ãƒã‚¦ã‚¹ãŒæŠ¼ã•ã‚ŒãŸã¨ãã«å‘¼ã°ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
      *
-     * @param e ƒ}ƒEƒXƒCƒxƒ“ƒgƒIƒuƒWƒFƒNƒg
+     * @param e ãƒã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public void mousePressed(MouseEvent e)
     {
@@ -116,9 +116,9 @@ public class InputManager
     }
 
     /**
-     * ƒ}ƒEƒX‚ª—£‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚éƒƒ\ƒbƒh
+     * ãƒã‚¦ã‚¹ãŒé›¢ã•ã‚ŒãŸã¨ãã«å‘¼ã°ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
      *
-     * @param e ƒ}ƒEƒXƒCƒxƒ“ƒgƒIƒuƒWƒFƒNƒg
+     * @param e ãƒã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public void mouseReleased(MouseEvent e)
     {
@@ -128,9 +128,9 @@ public class InputManager
     }
 
     /**
-     * ƒ}ƒEƒX‚ªƒhƒ‰ƒbƒO‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚éƒƒ\ƒbƒh
+     * ãƒã‚¦ã‚¹ãŒãƒ‰ãƒ©ãƒƒã‚°ã•ã‚ŒãŸã¨ãã«å‘¼ã°ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
      *
-     * @param e ƒ}ƒEƒXƒCƒxƒ“ƒgƒIƒuƒWƒFƒNƒg
+     * @param e ãƒã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public void mouseDragged(MouseEvent e)
     {
@@ -139,9 +139,9 @@ public class InputManager
     }
 
     /**
-     * ƒ}ƒEƒX‚ª“®‚¢‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚éƒƒ\ƒbƒh
+     * ãƒã‚¦ã‚¹ãŒå‹•ã„ãŸã¨ãã«å‘¼ã°ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
      *
-     * @param e ƒ}ƒEƒXƒCƒxƒ“ƒgƒIƒuƒWƒFƒNƒg
+     * @param e ãƒã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public void mouseMoved(MouseEvent e)
     {
@@ -151,9 +151,9 @@ public class InputManager
     }
 
     /**
-     * ƒ}ƒEƒX‚ÌXÀ•W‚ğ’²‚×‚é
+     * ãƒã‚¦ã‚¹ã®Xåº§æ¨™ã‚’èª¿ã¹ã‚‹
      *
-     * @return ƒ}ƒEƒX‚ÌXÀ•W‚ğ•Ô‚·
+     * @return ãƒã‚¦ã‚¹ã®Xåº§æ¨™ã‚’è¿”ã™
      */
     public int getMouseX()
     {
@@ -161,9 +161,9 @@ public class InputManager
     }
 
     /**
-     * ƒ}ƒEƒX‚ÌYÀ•W‚ğ’²‚×‚é
+     * ãƒã‚¦ã‚¹ã®Yåº§æ¨™ã‚’èª¿ã¹ã‚‹
      *
-     * @return ƒ}ƒEƒX‚ÌYÀ•W‚ğ•Ô‚·
+     * @return ãƒã‚¦ã‚¹ã®Yåº§æ¨™ã‚’è¿”ã™
      */
     public int getMouseY()
     {
@@ -171,9 +171,9 @@ public class InputManager
     }
 
     /**
-     * ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ä‚¢‚éŠÔ‚ğ’²‚×‚é
+     * ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã„ã‚‹æ™‚é–“ã‚’èª¿ã¹ã‚‹
      *
-     * @return ƒ}ƒEƒX‚Ì‰Ÿ‚µ‚Ä‚¢‚éŠÔ‚ğ’²‚×‚é
+     * @return ãƒã‚¦ã‚¹ã®æŠ¼ã—ã¦ã„ã‚‹æ™‚é–“ã‚’èª¿ã¹ã‚‹
      */
     public int getMouseClickLength()
     {
@@ -181,9 +181,9 @@ public class InputManager
     }
 
     /**
-     * ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½uŠÔ‚©’²‚×‚é
+     * ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸç¬é–“ã‹èª¿ã¹ã‚‹
      *
-     * @return ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½uŠÔ‚È‚çtrue‚ğ•Ô‚·
+     * @return ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸç¬é–“ãªã‚‰trueã‚’è¿”ã™
      */
     public boolean isMousePushed()
     {
@@ -191,9 +191,9 @@ public class InputManager
     }
 
     /**
-     * ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ğ—£‚µ‚½uŠÔ‚©‚ğ’²‚×‚é
+     * ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ã‚’é›¢ã—ãŸç¬é–“ã‹ã‚’èª¿ã¹ã‚‹
      *
-     * @return ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ğ—£‚µ‚½uŠÔ‚È‚çtrue‚ğ•Ô‚·
+     * @return ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ã‚’é›¢ã—ãŸç¬é–“ãªã‚‰trueã‚’è¿”ã™
      */
     public boolean isMouseReleased()
     {
@@ -201,9 +201,9 @@ public class InputManager
     }
 
     /**
-     * ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ä‚¢‚é‚©’²‚×‚é
+     * ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã„ã‚‹ã‹èª¿ã¹ã‚‹
      *
-     * @return ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚Ä‚¢‚½‚çtrue‚ğ•Ô‚·
+     * @return ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã„ãŸã‚‰trueã‚’è¿”ã™
      */
     public boolean isMousePress()
     {
@@ -211,7 +211,7 @@ public class InputManager
     }
 
     /**
-     * ƒ}ƒEƒX‚âƒL[‚Ìó‘Ô‚ğXV‚·‚é
+     * ãƒã‚¦ã‚¹ã‚„ã‚­ãƒ¼ã®çŠ¶æ…‹ã‚’æ›´æ–°ã™ã‚‹
      */
     public void updateKeyData()
     {
@@ -241,9 +241,9 @@ public class InputManager
     }
 
     /**
-     * ƒL[‚ª‰Ÿ‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚éƒƒ\ƒbƒh
+     * ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸã¨ãã«å‘¼ã³å‡ºã•ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
      *
-     * @param e ƒL[ƒCƒxƒ“ƒg
+     * @param e ã‚­ãƒ¼ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public synchronized void keyPressed(KeyEvent e)
     {
@@ -259,9 +259,9 @@ public class InputManager
     }
 
     /**
-     * ƒL[‚ª—£‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚éƒƒ\ƒbƒh
+     * ã‚­ãƒ¼ãŒé›¢ã•ã‚ŒãŸã¨ãã«å‘¼ã³å‡ºã•ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
      *
-     * @param e ƒL[ƒCƒxƒ“ƒg
+     * @param e ã‚­ãƒ¼ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public synchronized void keyReleased(KeyEvent e)
     {
@@ -277,19 +277,19 @@ public class InputManager
     }
 
     /**
-     * ƒL[‚ªƒ^ƒCƒv‚³‚ê‚½‚Æ‚«‚ç‚µ‚¢
+     * ã‚­ãƒ¼ãŒã‚¿ã‚¤ãƒ—ã•ã‚ŒãŸã¨ãã‚‰ã—ã„
      *
-     * @param e ƒL[ƒCƒxƒ“ƒg
+     * @param e ã‚­ãƒ¼ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public void keyTyped(KeyEvent e)
     {
     }
 
     /**
-     * ƒL[‚Ìó‘Ô‚ğ“¾‚é
+     * ã‚­ãƒ¼ã®çŠ¶æ…‹ã‚’å¾—ã‚‹
      *
-     * @param num ƒL[ƒR[ƒh
-     * @return ƒL[‚Ì‰Ÿ‚µ‚Ä‚¢‚é’·‚³‚ğ•Ô‚·
+     * @param num ã‚­ãƒ¼ã‚³ãƒ¼ãƒ‰
+     * @return ã‚­ãƒ¼ã®æŠ¼ã—ã¦ã„ã‚‹é•·ã•ã‚’è¿”ã™
      */
     private int getKeyState(int num)
     {
@@ -301,10 +301,10 @@ public class InputManager
     }
 
     /**
-     * ƒL[‚ğ‰Ÿ‚µ‚Ä‚¢‚é’·‚³‚ğ•Ô‚·
+     * ã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ã„ã‚‹é•·ã•ã‚’è¿”ã™
      *
-     * @param number ’²‚×‚éƒL[‚Ì”Ô†‚ğw’è‚·‚é
-     * @return ’²‚×‚Ä‚¢‚éƒL[‚Ì’·‚³‚ğ•Ô‚·
+     * @param number èª¿ã¹ã‚‹ã‚­ãƒ¼ã®ç•ªå·ã‚’æŒ‡å®šã™ã‚‹
+     * @return èª¿ã¹ã¦ã„ã‚‹ã‚­ãƒ¼ã®é•·ã•ã‚’è¿”ã™
      */
     public int getKeyPressLength(int number)
     {
@@ -312,10 +312,10 @@ public class InputManager
     }
 
     /**
-     * ƒL[‚ª‰Ÿ‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ğ•Ô‚·
+     * ã‚­ãƒ¼ãŒæŠ¼ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹ã‚’è¿”ã™
      *
-     * @param key ’²‚×‚½‚¢ƒL[‚ğw’è
-     * @return true‚È‚ç‚ÎA’²‚×‚Ä‚¢‚éƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚ÄAfalse‚È‚ç‰Ÿ‚³‚ê‚Ä‚¢‚È‚¢
+     * @param key èª¿ã¹ãŸã„ã‚­ãƒ¼ã‚’æŒ‡å®š
+     * @return trueãªã‚‰ã°ã€èª¿ã¹ã¦ã„ã‚‹ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ã¦ã€falseãªã‚‰æŠ¼ã•ã‚Œã¦ã„ãªã„
      */
     public boolean isKeyPressed(int key)
     {
@@ -323,10 +323,10 @@ public class InputManager
     }
 
     /**
-     * ƒL[‚ª‰Ÿ‚³‚ê‚½uŠÔ‚©‚ğ•Ô‚·
+     * ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸç¬é–“ã‹ã‚’è¿”ã™
      *
-     * @param key ’²‚×‚½‚¢ƒL[‚ğw’è
-     * @return true‚È‚ç‚ÎA‚»‚Ìw’èƒL[‚ª‰Ÿ‚³‚ê‚½uŠÔBfalse‚È‚ç‚ÎA‰Ÿ‚³‚ê‚½uŠÔ‚Å‚Í‚È‚¢D
+     * @param key èª¿ã¹ãŸã„ã‚­ãƒ¼ã‚’æŒ‡å®š
+     * @return trueãªã‚‰ã°ã€ãã®æŒ‡å®šã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸç¬é–“ã€‚falseãªã‚‰ã°ã€æŠ¼ã•ã‚ŒãŸç¬é–“ã§ã¯ãªã„ï¼
      */
     public boolean isKeyPushed(int key)
     {
@@ -334,10 +334,10 @@ public class InputManager
     }
 
     /**
-     * ƒL[‚ª—£‚³‚ê‚½uŠÔ‚©‚ğ•Ô‚·
+     * ã‚­ãƒ¼ãŒé›¢ã•ã‚ŒãŸç¬é–“ã‹ã‚’è¿”ã™
      *
-     * @param key ’²‚×‚½‚¢ƒL[‚ğw’è
-     * @return true‚È‚ç‚ÎA‚»‚Ìw’èƒL[‚ª—£‚³‚ê‚½uŠÔBfalse‚È‚ç‚ÎA—£‚³‚ê‚½uŠÔ‚Å‚Í‚È‚¢D
+     * @param key èª¿ã¹ãŸã„ã‚­ãƒ¼ã‚’æŒ‡å®š
+     * @return trueãªã‚‰ã°ã€ãã®æŒ‡å®šã‚­ãƒ¼ãŒé›¢ã•ã‚ŒãŸç¬é–“ã€‚falseãªã‚‰ã°ã€é›¢ã•ã‚ŒãŸç¬é–“ã§ã¯ãªã„ï¼
      */
     public boolean isKeyReleased(int key)
     {

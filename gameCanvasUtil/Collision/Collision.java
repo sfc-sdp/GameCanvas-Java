@@ -1,22 +1,22 @@
 package gameCanvasUtil.Collision;
 
 /**
- * Õ“Ë”»’è‚È‚Ç‚ğæ‚è‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX‚Å‚·
+ * è¡çªåˆ¤å®šãªã©ã‚’å–ã‚Šã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹ã§ã™
  */
 public class Collision
 {
 
     /**
-     * ‹éŒ`‚`‚Æ‹éŒ`‚a‚ª‚Ô‚Â‚©‚Á‚Ä‚¢‚é‚©”»’è‚·‚é
+     * çŸ©å½¢ï¼¡ã¨çŸ©å½¢ï¼¢ãŒã¶ã¤ã‹ã£ã¦ã„ã‚‹ã‹åˆ¤å®šã™ã‚‹
      *
-     * @param x1 ‹éŒ`‚`‚Ì¶ã‚wÀ•W
-     * @param y1 ‹éŒ`‚`‚Ì¶ã‚xÀ•W
-     * @param w1 ‹éŒ`‚`‚Ì•
-     * @param h1 ‹éŒ`‚`‚Ì‚‚³
-     * @param x2 ‹éŒ`‚a‚Ì¶ã‚wÀ•W
-     * @param y2 ‹éŒ`‚a‚Ì¶ã‚xÀ•W
-     * @param w2 ‹éŒ`‚a‚Ì•
-     * @param h2 ‹éŒ`‚a‚Ì‚‚³
+     * @param x1 çŸ©å½¢ï¼¡ã®å·¦ä¸Šï¼¸åº§æ¨™
+     * @param y1 çŸ©å½¢ï¼¡ã®å·¦ä¸Šï¼¹åº§æ¨™
+     * @param w1 çŸ©å½¢ï¼¡ã®å¹…
+     * @param h1 çŸ©å½¢ï¼¡ã®é«˜ã•
+     * @param x2 çŸ©å½¢ï¼¢ã®å·¦ä¸Šï¼¸åº§æ¨™
+     * @param y2 çŸ©å½¢ï¼¢ã®å·¦ä¸Šï¼¹åº§æ¨™
+     * @param w2 çŸ©å½¢ï¼¢ã®å¹…
+     * @param h2 çŸ©å½¢ï¼¢ã®é«˜ã•
      *
      */
     static public boolean checkHitRect(int x1, int y1, int w1, int h1, int x2,
@@ -30,15 +30,15 @@ public class Collision
     }
 
     /**
-     * ‰~A‚Æ‰~B‚Ì“–‚½‚è”»’è‚ğs‚¤
+     * å††Aã¨å††Bã®å½“ãŸã‚Šåˆ¤å®šã‚’è¡Œã†
      *
-     * @param x1 ‰~A‚Ì’†SXÀ•W
-     * @param y1 ‰~A‚Ì’†SYÀ•W
-     * @param r1 ‰~A‚Ì”¼Œa
-     * @param x2 ‰~B‚Ì’†SXÀ•W
-     * @param y2 ‰~B‚Ì’†SYÀ•W
-     * @param r2 ‰~B‚Ì”¼Œa
-     * @return ‰~A‚Æ‰~B‚ª“–‚½‚Á‚½‚©‚Ç‚¤‚©H
+     * @param x1 å††Aã®ä¸­å¿ƒXåº§æ¨™
+     * @param y1 å††Aã®ä¸­å¿ƒYåº§æ¨™
+     * @param r1 å††Aã®åŠå¾„
+     * @param x2 å††Bã®ä¸­å¿ƒXåº§æ¨™
+     * @param y2 å††Bã®ä¸­å¿ƒYåº§æ¨™
+     * @param r2 å††Bã®åŠå¾„
+     * @return å††Aã¨å††BãŒå½“ãŸã£ãŸã‹ã©ã†ã‹ï¼Ÿ
      */
     static public boolean checkHitCircle(double x1, double y1, double r1,
             double x2, double y2, double r2)
@@ -55,13 +55,13 @@ public class Collision
     }
 
     /**
-     * “ñ“_ŠÔ‚Ì‹——£‚ğ‹‚ß‚é
+     * äºŒç‚¹é–“ã®è·é›¢ã‚’æ±‚ã‚ã‚‹
      *
-     * @param x1 “_A‚ÌXÀ•W
-     * @param y1 “_A‚ÌYÀ•W
-     * @param x2 “_B‚ÌXÀ•W
-     * @param y2 “_B‚ÌYÀ•W
-     * @return “_A‚Æ“_B‚Ì‹——£‚ğ•Ô‚·
+     * @param x1 ç‚¹Aã®Xåº§æ¨™
+     * @param y1 ç‚¹Aã®Yåº§æ¨™
+     * @param x2 ç‚¹Bã®Xåº§æ¨™
+     * @param y2 ç‚¹Bã®Yåº§æ¨™
+     * @return ç‚¹Aã¨ç‚¹Bã®è·é›¢ã‚’è¿”ã™
      */
     static public double getPointDistance(double x1, double y1, double x2,
             double y2)
@@ -73,17 +73,17 @@ public class Collision
     }
 
     /**
-     * ü•ªA‚Æü•ªB‚Ì“–‚½‚è”»’è
+     * ç·šåˆ†Aã¨ç·šåˆ†Bã®å½“ãŸã‚Šåˆ¤å®š
      *
-     * @param st_x1 ü•ªA‚Ìn“_XÀ•W
-     * @param st_y1 ü•ªA‚Ìn“_YÀ•W
-     * @param ed_x1 ü•ªA‚ÌI“_XÀ•W
-     * @param ed_y1 ü•ªA‚ÌI“_YÀ•W
-     * @param st_x2 ü•ªB‚Ìn“_XÀ•W
-     * @param st_y2 ü•ªB‚Ìn“_YÀ•W
-     * @param ed_x2 ü•ªB‚ÌI“_XÀ•W
-     * @param ed_y2 ü•ªB‚ÌI“_YÀ•W
-     * @return ü•ª“¯m‚ÌŒğ“_‚ğ•Ô‚·B(Œğ“_‚ª–³‚¢ê‡Anull‚ğ•Ô‚·)
+     * @param st_x1 ç·šåˆ†Aã®å§‹ç‚¹Xåº§æ¨™
+     * @param st_y1 ç·šåˆ†Aã®å§‹ç‚¹Yåº§æ¨™
+     * @param ed_x1 ç·šåˆ†Aã®çµ‚ç‚¹Xåº§æ¨™
+     * @param ed_y1 ç·šåˆ†Aã®çµ‚ç‚¹Yåº§æ¨™
+     * @param st_x2 ç·šåˆ†Bã®å§‹ç‚¹Xåº§æ¨™
+     * @param st_y2 ç·šåˆ†Bã®å§‹ç‚¹Yåº§æ¨™
+     * @param ed_x2 ç·šåˆ†Bã®çµ‚ç‚¹Xåº§æ¨™
+     * @param ed_y2 ç·šåˆ†Bã®çµ‚ç‚¹Yåº§æ¨™
+     * @return ç·šåˆ†åŒå£«ã®äº¤ç‚¹ã‚’è¿”ã™ã€‚(äº¤ç‚¹ãŒç„¡ã„å ´åˆã€nullã‚’è¿”ã™)
      */
     static public MyVector2D checkHitVector(double st_x1, double st_y1,
             double ed_x1, double ed_y1, double st_x2, double st_y2,
@@ -113,18 +113,18 @@ public class Collision
     }
 
     /**
-     * ü•ªA‚Æü•ªB‚Ì“–‚½‚è”»’è‚ğs‚¤(new ‚µ‚È‚¢”Å)
+     * ç·šåˆ†Aã¨ç·šåˆ†Bã®å½“ãŸã‚Šåˆ¤å®šã‚’è¡Œã†(new ã—ãªã„ç‰ˆ)
      *
-     * @param st_x1 ü•ªA‚Ìn“_XÀ•W
-     * @param st_y1 ü•ªA‚Ìn“_YÀ•W
-     * @param ed_x1 ü•ªA‚ÌI“_XÀ•W
-     * @param ed_y1 ü•ªA‚ÌI“_YÀ•W
-     * @param st_x2 ü•ªB‚Ìn“_XÀ•W
-     * @param st_y2 ü•ªB‚Ìn“_YÀ•W
-     * @param ed_x2 ü•ªB‚ÌI“_XÀ•W
-     * @param ed_y2 ü•ªB‚ÌI“_YÀ•W
-     * @param p Œğ·‚µ‚½ƒ|ƒCƒ“ƒg‚ğŠi”[‚·‚é
-     * @return ü•ª“¯m‚ÌŒğ“_‚ª‚ ‚Á‚½ê‡Atrue,
+     * @param st_x1 ç·šåˆ†Aã®å§‹ç‚¹Xåº§æ¨™
+     * @param st_y1 ç·šåˆ†Aã®å§‹ç‚¹Yåº§æ¨™
+     * @param ed_x1 ç·šåˆ†Aã®çµ‚ç‚¹Xåº§æ¨™
+     * @param ed_y1 ç·šåˆ†Aã®çµ‚ç‚¹Yåº§æ¨™
+     * @param st_x2 ç·šåˆ†Bã®å§‹ç‚¹Xåº§æ¨™
+     * @param st_y2 ç·šåˆ†Bã®å§‹ç‚¹Yåº§æ¨™
+     * @param ed_x2 ç·šåˆ†Bã®çµ‚ç‚¹Xåº§æ¨™
+     * @param ed_y2 ç·šåˆ†Bã®çµ‚ç‚¹Yåº§æ¨™
+     * @param p äº¤å·®ã—ãŸãƒã‚¤ãƒ³ãƒˆã‚’æ ¼ç´ã™ã‚‹
+     * @return ç·šåˆ†åŒå£«ã®äº¤ç‚¹ãŒã‚ã£ãŸå ´åˆã€true,
      */
     static public boolean checkHitVector(double st_x1, double st_y1,
             double ed_x1, double ed_y1, double st_x2, double st_y2,
@@ -153,15 +153,15 @@ public class Collision
     }
 
     /**
-     * ü•ª‚Æ“_‚Ì‹——£‚ğ“¾‚é
+     * ç·šåˆ†ã¨ç‚¹ã®è·é›¢ã‚’å¾—ã‚‹
      *
-     * @param px “_‚ÌXÀ•W
-     * @param py “_‚ÌYÀ•W
-     * @param st_x ü•ª‚Ìn“_XÀ•W
-     * @param st_y ü•ª‚Ìn“_YÀ•W
-     * @param ed_x ü•ª‚ÌI“_XÀ•W
-     * @param ed_y ü•ª‚ÌI“_YÀ•W
-     * @return “_‚Æü•ª‚Ì‹——£
+     * @param px ç‚¹ã®Xåº§æ¨™
+     * @param py ç‚¹ã®Yåº§æ¨™
+     * @param st_x ç·šåˆ†ã®å§‹ç‚¹Xåº§æ¨™
+     * @param st_y ç·šåˆ†ã®å§‹ç‚¹Yåº§æ¨™
+     * @param ed_x ç·šåˆ†ã®çµ‚ç‚¹Xåº§æ¨™
+     * @param ed_y ç·šåˆ†ã®çµ‚ç‚¹Yåº§æ¨™
+     * @return ç‚¹ã¨ç·šåˆ†ã®è·é›¢
      */
     static public double getVectorPointDistance(double px, double py,
             double st_x, double st_y, double ed_x, double ed_y)

@@ -1,28 +1,28 @@
 package gameCanvasUtil;
 
 /**
- * ƒtƒŒ[ƒ€§Œä‚ğs‚¤‚½‚ß‚ÌƒNƒ‰ƒX‚Å‚·B
+ * ãƒ•ãƒ¬ãƒ¼ãƒ åˆ¶å¾¡ã‚’è¡Œã†ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
  *
- * å‚ÉFPS‚ÌŠÇ—‚ğ‚µ‚Ä‚¢‚Ü‚·B Œ©‚él‚ªŒ©‚½‚çƒAƒz‚ÈÀ‘•‚Å‚·‚ªA System.currentTimeMillis‚Ì¸“x‚ªˆ«‚¢‚Ì‚Åd•û‚È‚­EEE
+ * ä¸»ã«FPSã®ç®¡ç†ã‚’ã—ã¦ã„ã¾ã™ã€‚ è¦‹ã‚‹äººãŒè¦‹ãŸã‚‰ã‚¢ãƒ›ãªå®Ÿè£…ã§ã™ãŒã€ System.currentTimeMillisã®ç²¾åº¦ãŒæ‚ªã„ã®ã§ä»•æ–¹ãªããƒ»ãƒ»ãƒ»
  */
 public class FPSManager
 {
-    // ‘O‚ÌŠÔ
+    // å‰ã®æ™‚é–“
     private long prevTime = 0;
-    // ‘Oˆê•b‚ÌFPS,FPS—p‚ÌƒJƒEƒ“ƒgCˆêƒtƒŒ[ƒ€‚ ‚½‚è‚Ì‘Ò‚¿ŠÔ
+    // å‰ä¸€ç§’ã®FPS,FPSç”¨ã®ã‚«ã‚¦ãƒ³ãƒˆï¼Œä¸€ãƒ•ãƒ¬ãƒ¼ãƒ ã‚ãŸã‚Šã®å¾…ã¡æ™‚é–“
     private int fps, fpsTemp, waitTime;
 
-    // —‘z‚ÌFPS
+    // ç†æƒ³ã®FPS
     private int confFps = 60;
 
-    // ƒvƒ‰ƒCƒx[ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^
+    // ãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
     private void FPSManager() {}
 
-    // ƒVƒ“ƒOƒ‹ƒgƒ“ƒCƒ“ƒXƒ^ƒ“ƒX
+    // ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
     private static FPSManager instance = null;
 
     /**
-     * @return ƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·
+     * @return ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™
      */
     public static FPSManager getInstance()
     {
@@ -32,9 +32,9 @@ public class FPSManager
     }
 
     /**
-     * ‰Šú‰»
+     * åˆæœŸåŒ–
      *
-     * @param conf_fps FPS‚Ìw’è‚ğs‚¤
+     * @param conf_fps FPSã®æŒ‡å®šã‚’è¡Œã†
      */
     public void init(int conf_fps)
     {
@@ -43,9 +43,9 @@ public class FPSManager
     }
 
     /**
-     * ‘Ò‚¿ŠÔ‚ğZo‚µ‚ÄƒXƒŠ[ƒv
+     * å¾…ã¡æ™‚é–“ã‚’ç®—å‡ºã—ã¦ã‚¹ãƒªãƒ¼ãƒ—
      *
-     * @return Às’†‚ÌFPS
+     * @return å®Ÿè¡Œä¸­ã®FPS
      */
     public int Wait()
     {
@@ -81,7 +81,7 @@ public class FPSManager
     }
 
     /**
-     * ƒXƒŠ[ƒvˆ—‚ğs‚¤
+     * ã‚¹ãƒªãƒ¼ãƒ—å‡¦ç†ã‚’è¡Œã†
      */
     private void sleep()
     {
@@ -97,9 +97,9 @@ public class FPSManager
     }
 
     /**
-     * FPS‚ğ’²‚×‚é
+     * FPSã‚’èª¿ã¹ã‚‹
      *
-     * @return FPS‚ğ•Ô‚·B
+     * @return FPSã‚’è¿”ã™ã€‚
      */
     public int getFps()
     {

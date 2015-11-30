@@ -1,30 +1,30 @@
-//�C���|�[�g
+//インポート
 import gameCanvasUtil.*;
 
-/** �Q�[���N���X�B
+/** ゲームクラス。
  *
- * �w�����ҏW���ׂ��\�[�X�R�[�h�ł��B
+ * 学生が編集すべきソースコードです。
  */
 public class Game extends GameBase
 {
-    /********* �������̎菇�͂������ *********/
+    /********* 初期化の手順はこちらに *********/
     public void initGame() {}
 
-    /********* ���̂̈ړ����̍X�V�����͂������ *********/
+    /********* 物体の移動等の更新処理はこちらに *********/
     public void updateGame() {}
 
-    /********* �摜�̕`��͂������ *********/
+    /********* 画像の描画はこちらに *********/
     public void drawGame()
     {
-        // ��ʂ𔒂œh��Ԃ��܂�
+        // 画面を白で塗りつぶします
         gc.clearScreen();
 
-        // ��������A�摜��\�����閽�߂��L�q���Ă���
+        // ここから、画像を表示する命令を記述していく
         gc.drawImage(0, 0, 0);
         gc.setColor(0, 0, 0);
-        gc.drawString("���̕����Ɛ�̉摜�������Ă���ΐ����ł�", 60, 220);
+        gc.drawString("この文字と青空の画像が見えていれば成功です", 60, 220);
     }
 
-    /********* �I�����̏����͂������ *********/
+    /********* 終了時の処理はこちらに *********/
     public void finalGame() {}
 }

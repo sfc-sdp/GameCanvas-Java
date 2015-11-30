@@ -5,12 +5,12 @@ import java.io.File;
 public class ResourceUtil
 {
     /**
-     * ˜A”Ôƒtƒ@ƒCƒ‹‚ÌÅI”Ô†‚ğ•Ô‚·
-     * 0”Ô‚©‚çƒtƒ@ƒCƒ‹‚ğ’²‚×‚Ä‚¢‚Á‚ÄAÅŒã‚Ì˜A”Ôƒtƒ@ƒCƒ‹ID‚ğ•Ô‚·
+     * é€£ç•ªãƒ•ã‚¡ã‚¤ãƒ«ã®æœ€çµ‚ç•ªå·ã‚’è¿”ã™
+     * 0ç•ªã‹ã‚‰ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª¿ã¹ã¦ã„ã£ã¦ã€æœ€å¾Œã®é€£ç•ªãƒ•ã‚¡ã‚¤ãƒ«IDã‚’è¿”ã™
      *
-     * @param base_file_path “Ç‚İ‚Ş˜A”Ôƒtƒ@ƒCƒ‹–¼‚Ìw’è(xxx0.type‚ÌAxxx‚Ì•”•ª)
-     * @param file_type_array Šg’£qƒŠƒXƒg
-     * —á‚¦‚ÎA{ ".gif", ".png" } ‚ªw’è‚³‚ê‚½‚çAgif, png ‚Ì‡‚É‘¶İ‚ğƒ`ƒFƒbƒN‚·‚é
+     * @param base_file_path èª­ã¿è¾¼ã‚€é€£ç•ªãƒ•ã‚¡ã‚¤ãƒ«åã®æŒ‡å®š(xxx0.typeã®ã€xxxã®éƒ¨åˆ†)
+     * @param file_type_array æ‹¡å¼µå­ãƒªã‚¹ãƒˆ
+     * ä¾‹ãˆã°ã€{ ".gif", ".png" } ãŒæŒ‡å®šã•ã‚ŒãŸã‚‰ã€gif, png ã®é †ã«å­˜åœ¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹
      * @return
      */
     public static int getResourceLastID(String base_file_path, String[] file_type_array)

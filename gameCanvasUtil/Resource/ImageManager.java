@@ -6,33 +6,33 @@ import java.io.File;
 import java.io.InputStream;
 
 /**
- * ‰æ‘œ‚ÌŠÇ—‚ğs‚¤ƒNƒ‰ƒX
+ * ç”»åƒã®ç®¡ç†ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹
  *
- * ÀÛ‚Ì•`‰æ‚Í gameCanvas‚ÉImageƒIƒuƒWƒFƒNƒg•Ô‚µ‚Ä‚â‚é‚©‚ç@‚â‚Á‚Ä‚­‚ê[<br />
- * ‰æ‘œ‚Í˜A”Ô‚Å“Ç‚İ‚İ‚Ü‚·
+ * å®Ÿéš›ã®æç”»ã¯ gameCanvasã«Imageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆè¿”ã—ã¦ã‚„ã‚‹ã‹ã‚‰ã€€ã‚„ã£ã¦ãã‚Œãƒ¼<br />
+ * ç”»åƒã¯é€£ç•ªã§èª­ã¿è¾¼ã¿ã¾ã™
  */
 public class ImageManager
 {
-    // ƒŠƒ\[ƒX”(”z—ñ‚Ì—v‘f”)
+    // ãƒªã‚½ãƒ¼ã‚¹æ•°(é…åˆ—ã®è¦ç´ æ•°)
     private int resourceNum;
 
-    // ‰æ‘œ
+    // ç”»åƒ
     private Image img[] = null;
 
-    // ‰æ‘œ‚Ìƒoƒbƒtƒ@ƒTƒCƒYB‚±‚±‚Å‚Í4MB‚ğw’è‚µ‚Ä‚¢‚é
+    // ç”»åƒã®ãƒãƒƒãƒ•ã‚¡ã‚µã‚¤ã‚ºã€‚ã“ã“ã§ã¯4MBã‚’æŒ‡å®šã—ã¦ã„ã‚‹
     private byte imageBuffer[] = new byte[1024 * 1024 * 4];
 
-    // ƒVƒ“ƒOƒ‹ƒgƒ“ƒCƒ“ƒXƒ^ƒ“ƒX
+    // ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
     private static ImageManager instance = null;
 
-    // ƒvƒ‰ƒCƒx[ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^
+    // ãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
     private void ImageManager()
     {
         resourceNum = 0;
     }
 
     /**
-     * @return ƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·
+     * @return ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™
      */
     public static ImageManager getInstance()
     {
@@ -42,8 +42,8 @@ public class ImageManager
     }
 
     /**
-     * ‰Šú‰»BƒŠƒ\[ƒX‚ğ‚Ü‚Æ‚ß‚Äƒ[ƒh‚·‚é
-     * @param base_file_path “Ç‚İ‚Ş˜A”Ôƒtƒ@ƒCƒ‹–¼‚Ìw’è(xxx0.wav‚ÌAxxx‚Ì•”•ª)
+     * åˆæœŸåŒ–ã€‚ãƒªã‚½ãƒ¼ã‚¹ã‚’ã¾ã¨ã‚ã¦ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
+     * @param base_file_path èª­ã¿è¾¼ã‚€é€£ç•ªãƒ•ã‚¡ã‚¤ãƒ«åã®æŒ‡å®š(xxx0.wavã®ã€xxxã®éƒ¨åˆ†)
      */
     public void init(String base_file_path)
     {
@@ -51,10 +51,10 @@ public class ImageManager
     }
 
     /**
-     * ˜A”Ô‚Ì‰æ‘œƒtƒ@ƒCƒ‹‚ğAƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚­‚È‚é‚Ü‚Å“Ç‚Ş
-     * ".gif", ".GIF", ".png", ".PNG", ".jpg", ".JPG" ‚Ì‡‚É‘¶İ‚ğƒ`ƒFƒbƒN
+     * é€£ç•ªã®ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã€ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªããªã‚‹ã¾ã§èª­ã‚€
+     * ".gif", ".GIF", ".png", ".PNG", ".jpg", ".JPG" ã®é †ã«å­˜åœ¨ã‚’ãƒã‚§ãƒƒã‚¯
      *
-     * @param base_file_path “Ç‚İ‚Ş˜A”Ôƒtƒ@ƒCƒ‹–¼‚Ìw’è(xxx0.png‚ÌAxxx‚Ì•”•ª)
+     * @param base_file_path èª­ã¿è¾¼ã‚€é€£ç•ªãƒ•ã‚¡ã‚¤ãƒ«åã®æŒ‡å®š(xxx0.pngã®ã€xxxã®éƒ¨åˆ†)
      */
     private void loadNumberingImage(String base_file_path)
     {
@@ -83,10 +83,10 @@ public class ImageManager
     }
 
     /**
-     * ‰æ‘œƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚ŞB“Ç‚İ‚ß‚½‚çƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·
+     * ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€ã€‚èª­ã¿è¾¼ã‚ãŸã‚‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™
      *
-     * @param file_name ƒtƒ@ƒCƒ‹–¼
-     * @return “Ç‚İ‚ñ‚¾ImageƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·
+     * @param file_name ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @return èª­ã¿è¾¼ã‚“ã Imageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™
      */
     private Image loadImage(String file_name)
     {
@@ -116,10 +116,10 @@ public class ImageManager
     }
 
     /**
-     * ‰æ‘œ‚Ì•‚ğ•Ô‚·
+     * ç”»åƒã®å¹…ã‚’è¿”ã™
      *
-     * @param id ‰æ‘œ‚ÌID
-     * @return w’è‚³‚ê‚½‰æ‘œ‚Ì•
+     * @param id ç”»åƒã®ID
+     * @return æŒ‡å®šã•ã‚ŒãŸç”»åƒã®å¹…
      */
     public int getPicXsize(int id)
     {
@@ -135,10 +135,10 @@ public class ImageManager
     }
 
     /**
-     * ‰æ‘œ‚Ì‚‚³‚ğ•Ô‚·
+     * ç”»åƒã®é«˜ã•ã‚’è¿”ã™
      *
-     * @param id ‰æ‘œ‚ÌID
-     * @return w’è‚³‚ê‚½‰æ‘œ‚Ì‚‚³
+     * @param id ç”»åƒã®ID
+     * @return æŒ‡å®šã•ã‚ŒãŸç”»åƒã®é«˜ã•
      */
     public int getPicYsize(int id)
     {
@@ -154,10 +154,10 @@ public class ImageManager
     }
 
     /**
-     * ImageManager“à‚ÅŠÇ—‚µ‚Ä‚¢‚é‰æ‘œ‚ğ•Ô‚·
+     * ImageManagerå†…ã§ç®¡ç†ã—ã¦ã„ã‚‹ç”»åƒã‚’è¿”ã™
      *
-     * @param id ‰æ‘œ‚ÌID
-     * @return ‰æ‘œƒIƒuƒWƒFƒNƒg
+     * @param id ç”»åƒã®ID
+     * @return ç”»åƒã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public Image getImage(int id)
     {

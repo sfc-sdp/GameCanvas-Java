@@ -1,67 +1,67 @@
 package gameCanvasUtil.Resource;
 
 /**
- * ƒTƒEƒ“ƒhƒ}ƒl[ƒWƒƒ‚ÌƒCƒ“ƒ^[ƒtƒF[ƒX
+ * ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒãƒ¼ã‚¸ãƒ£ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
  *
- * Œ»“_‚ÅAMIDI,WAV(ƒIƒ“ƒƒ‚ƒŠ),WAV(ƒXƒgƒŠ[ƒ~ƒ“ƒO)‚Ì3‚Â‚ÌƒTƒuƒNƒ‰ƒX‚ğ‚Â
+ * ç¾æ™‚ç‚¹ã§ã€MIDI,WAV(ã‚ªãƒ³ãƒ¡ãƒ¢ãƒª),WAV(ã‚¹ãƒˆãƒªãƒ¼ãƒŸãƒ³ã‚°)ã®3ã¤ã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã‚’æŒã¤
  */
 public interface SoundManagerInterface
 {
     /**
-     * ‰Šú‰»BƒŠƒ\[ƒX‚ğ‚Ü‚Æ‚ß‚Äƒ[ƒh‚·‚é
-     * @param base_file_path “Ç‚İ‚Ş˜A”Ôƒtƒ@ƒCƒ‹–¼‚Ìw’è(xxx0.wav‚ÌAxxx‚Ì•”•ª)
+     * åˆæœŸåŒ–ã€‚ãƒªã‚½ãƒ¼ã‚¹ã‚’ã¾ã¨ã‚ã¦ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
+     * @param base_file_path èª­ã¿è¾¼ã‚€é€£ç•ªãƒ•ã‚¡ã‚¤ãƒ«åã®æŒ‡å®š(xxx0.wavã®ã€xxxã®éƒ¨åˆ†)
      */
     public void init(String base_file_path);
 
     /**
-     * ƒTƒEƒ“ƒh‚ÌXVˆ—
+     * ã‚µã‚¦ãƒ³ãƒ‰ã®æ›´æ–°å‡¦ç†
      */
     public void update();
 
     /**
-     * ƒTƒEƒ“ƒh‚ğÄ¶‚·‚é
+     * ã‚µã‚¦ãƒ³ãƒ‰ã‚’å†ç”Ÿã™ã‚‹
      *
-     * @param id ƒTƒEƒ“ƒh‚ÌID‚ğw’è
-     * @param loop ƒ‹[ƒv‚ğs‚¤‚©‚ğƒZƒbƒgBs‚¤‚È‚çtrueB
+     * @param id ã‚µã‚¦ãƒ³ãƒ‰ã®IDã‚’æŒ‡å®š
+     * @param loop ãƒ«ãƒ¼ãƒ—ã‚’è¡Œã†ã‹ã‚’ã‚»ãƒƒãƒˆã€‚è¡Œã†ãªã‚‰trueã€‚
      */
     public void playSound(int id, boolean loop);
 
     /**
-     * ƒTƒEƒ“ƒh‚Ì’â~‚ğs‚¤
+     * ã‚µã‚¦ãƒ³ãƒ‰ã®åœæ­¢ã‚’è¡Œã†
      *
-     * @param id ’â~‚·‚é‰¹‚ÌID
+     * @param id åœæ­¢ã™ã‚‹éŸ³ã®ID
      */
     public void stopSound(int id);
 
     /**
-     * ‘S‚Ä‚ÌƒTƒEƒ“ƒh‚Ì’â~‚ğs‚¤
+     * å…¨ã¦ã®ã‚µã‚¦ãƒ³ãƒ‰ã®åœæ­¢ã‚’è¡Œã†
      */
     public void stopSound();
 
     /**
-     * ƒTƒEƒ“ƒh‚Ìˆê’â~‚ğs‚¤
+     * ã‚µã‚¦ãƒ³ãƒ‰ã®ä¸€æ™‚åœæ­¢ã‚’è¡Œã†
      *
-     * @param id ˆê’â~‚·‚é‰¹‚ÌID
+     * @param id ä¸€æ™‚åœæ­¢ã™ã‚‹éŸ³ã®ID
      */
     public void pauseSound(int id);
 
     /**
-     * ‘S‚Ä‚ÌƒTƒEƒ“ƒh‚Ìˆê’â~‚ğs‚¤
+     * å…¨ã¦ã®ã‚µã‚¦ãƒ³ãƒ‰ã®ä¸€æ™‚åœæ­¢ã‚’è¡Œã†
      */
     public void pauseSound();
 
     /**
-     * ƒTƒEƒ“ƒh‚Ì‰¹—Ê‚ğ•ÏX‚·‚é
+     * ã‚µã‚¦ãƒ³ãƒ‰ã®éŸ³é‡ã‚’å¤‰æ›´ã™ã‚‹
      *
-     * @param id ‚Ç‚Ì‰¹‚ğ•ÏX‚·‚é‚©H
-     * @param vol ‰¹‚Ì‘å‚«‚³‚ğw’è(0-100)
+     * @param id ã©ã®éŸ³ã‚’å¤‰æ›´ã™ã‚‹ã‹ï¼Ÿ
+     * @param vol éŸ³ã®å¤§ãã•ã‚’æŒ‡å®š(0-100)
      */
     public void changeVolume(int id, int vol);
 
     /**
-     * ƒTƒEƒ“ƒh‚Ì‰¹—Ê‚ğ•ÏX‚·‚é
+     * ã‚µã‚¦ãƒ³ãƒ‰ã®éŸ³é‡ã‚’å¤‰æ›´ã™ã‚‹
      *
-     * @param vol ‰¹‚Ì‘å‚«‚³‚ğw’è(0-100)
+     * @param vol éŸ³ã®å¤§ãã•ã‚’æŒ‡å®š(0-100)
      */
     public void changeVolume(int vol);
 }

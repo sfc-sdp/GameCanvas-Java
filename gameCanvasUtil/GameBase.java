@@ -4,15 +4,15 @@ import gameCanvasUtil.GameInterface;
 import gameCanvasUtil.GameCanvas;
 
 /**
- * gameInterface‚ğŒp³‚µ‚½ƒNƒ‰ƒXB“à•”‚ÉgameCanvasƒIƒuƒWƒFƒNƒg‚ğ‚Â
+ * gameInterfaceã‚’ç¶™æ‰¿ã—ãŸã‚¯ãƒ©ã‚¹ã€‚å†…éƒ¨ã«gameCanvasã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒã¤
  */
 public abstract class GameBase implements GameInterface
 {
-    /** gameCanvas‚Ö‚ÌQÆ */
+    /** gameCanvasã¸ã®å‚ç…§ */
     protected GameCanvas gc = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B‚½‚¾’P‚ÉAgameCanvasƒIƒuƒWƒFƒNƒg‚Ö‚ÌQÆ‚ğ‚à‚ç‚¤‚¾‚¯B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚ãŸã å˜ã«ã€gameCanvasã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®å‚ç…§ã‚’ã‚‚ã‚‰ã†ã ã‘ã€‚
      */
     public GameBase()
     {
@@ -20,22 +20,22 @@ public abstract class GameBase implements GameInterface
     }
 
     /**
-     * I—¹ˆ—B
+     * çµ‚äº†å‡¦ç†ã€‚
      */
     public abstract void finalGame();
 
     /**
-     * ‰Šú‰»ˆ—B
+     * åˆæœŸåŒ–å‡¦ç†ã€‚
      */
     public abstract void initGame();
 
     /**
-     * XVˆ—B
+     * æ›´æ–°å‡¦ç†ã€‚
      */
     public abstract void updateGame();
 
     /**
-     * •`‰æˆ—B
+     * æç”»å‡¦ç†ã€‚
      */
     public abstract void drawGame();
 }

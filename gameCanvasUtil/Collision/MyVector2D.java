@@ -1,15 +1,15 @@
 package gameCanvasUtil.Collision;
 
 /**
- * 2D—p‚ÌƒxƒNƒgƒ‹ƒNƒ‰ƒX‚Å‚·B
+ * 2Dç”¨ã®ãƒ™ã‚¯ãƒˆãƒ«ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
  */
 public class MyVector2D
 {
-    // ƒxƒNƒgƒ‹‚Ì‚w¬•ªA‚x¬•ª
+    // ãƒ™ã‚¯ãƒˆãƒ«ã®ï¼¸æˆåˆ†ã€ï¼¹æˆåˆ†
     private double x, y;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     public MyVector2D()
     {
@@ -18,9 +18,9 @@ public class MyVector2D
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      *
-     * @param vec ˆø”vec‚Ì’†g‚ğƒRƒs[‚µ‚Ü‚·
+     * @param vec å¼•æ•°vecã®ä¸­èº«ã‚’ã‚³ãƒ”ãƒ¼ã—ã¾ã™
      */
     public MyVector2D(MyVector2D vec)
     {
@@ -29,10 +29,10 @@ public class MyVector2D
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      *
-     * @param _x ‚w¬•ª‚Ìw’è
-     * @param _y ‚x¬•ª‚Ìw’è
+     * @param _x ï¼¸æˆåˆ†ã®æŒ‡å®š
+     * @param _y ï¼¹æˆåˆ†ã®æŒ‡å®š
      */
     public MyVector2D(double _x, double _y)
     {
@@ -41,9 +41,9 @@ public class MyVector2D
     }
 
     /**
-     * X¬•ª‚Ìæ“¾
+     * Xæˆåˆ†ã®å–å¾—
      *
-     * @return X¬•ª
+     * @return Xæˆåˆ†
      */
     public double getX()
     {
@@ -51,9 +51,9 @@ public class MyVector2D
     }
 
     /**
-     * ‚x¬•ª‚Ìæ“¾
+     * ï¼¹æˆåˆ†ã®å–å¾—
      *
-     * @return ‚x¬•ª
+     * @return ï¼¹æˆåˆ†
      */
     public double getY()
     {
@@ -61,9 +61,9 @@ public class MyVector2D
     }
 
     /**
-     * ‚w¬•ª‚Ìw’è
+     * ï¼¸æˆåˆ†ã®æŒ‡å®š
      *
-     * @param _x ‚w¬•ª‚Ìw’è
+     * @param _x ï¼¸æˆåˆ†ã®æŒ‡å®š
      */
     public void setX(double _x)
     {
@@ -71,9 +71,9 @@ public class MyVector2D
     }
 
     /**
-     * ‚x¬•ª‚Ìw’è
+     * ï¼¹æˆåˆ†ã®æŒ‡å®š
      *
-     * @param _y ‚x¬•ª‚Ìw’è
+     * @param _y ï¼¹æˆåˆ†ã®æŒ‡å®š
      */
     public void setY(double _y)
     {

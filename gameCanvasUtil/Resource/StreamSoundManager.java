@@ -3,50 +3,50 @@ package gameCanvasUtil.Resource;
 import javax.sound.sampled.*;
 
 /**
- * ƒTƒEƒ“ƒh(WAV)‚ÌƒXƒgƒŠ[ƒ~ƒ“ƒOÄ¶s‚Á‚Ä‚¢‚éƒNƒ‰ƒX
+ * ã‚µã‚¦ãƒ³ãƒ‰(WAV)ã®ã‚¹ãƒˆãƒªãƒ¼ãƒŸãƒ³ã‚°å†ç”Ÿè¡Œã£ã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹
  *
- * “¯‚É‰½ŒÂ‚à‰¹‚ğ–Â‚ç‚·‚±‚Æ‚à‰Â”\‚¾‚ªA‚©‚È‚è•‰‰×‚ª‚‚¢
+ * åŒæ™‚ã«ä½•å€‹ã‚‚éŸ³ã‚’é³´ã‚‰ã™ã“ã¨ã‚‚å¯èƒ½ã ãŒã€ã‹ãªã‚Šè² è·ãŒé«˜ã„
  */
 public class StreamSoundManager implements SoundManagerInterface
 {
-    // ƒŠƒ\[ƒX”(”z—ñ‚Ì—v‘f”)
+    // ãƒªã‚½ãƒ¼ã‚¹æ•°(é…åˆ—ã®è¦ç´ æ•°)
     private int resourceNum;
 
-    // ‰¹‚ğ“Ç‚İ‚ŞStream
+    // éŸ³ã‚’èª­ã¿è¾¼ã‚€Stream
     private AudioInputStream audioInputStream[] = null;
     // LINE
     private SourceDataLine line[] = null;
-    // ƒTƒEƒ“ƒh‚Ìƒ‹[ƒv
+    // ã‚µã‚¦ãƒ³ãƒ‰ã®ãƒ«ãƒ¼ãƒ—
     private boolean loopFlag[] = null;
 
-    // ƒ‰ƒCƒ“ƒoƒbƒtƒ@[‚É‘Î‚·‚é‰¹‚ğ“ü‚ê‚é
+    // ãƒ©ã‚¤ãƒ³ãƒãƒƒãƒ•ã‚¡ãƒ¼ã«å¯¾ã™ã‚‹éŸ³ã‚’å…¥ã‚Œã‚‹
     private int bind[] = null;
 
-    // 1ƒ‰ƒCƒ“‚ ‚½‚è‚Ìƒoƒbƒtƒ@
+    // 1ãƒ©ã‚¤ãƒ³ã‚ãŸã‚Šã®ãƒãƒƒãƒ•ã‚¡
     private static final int EXTERNAL_BUFFER_SIZE = 12800 / 3;
-    // “¯Ä¶‚Å‚«‚é”B•‰‰×‚ª‚‚¢‚Ì‚Å1‚ğw’è
+    // åŒæ™‚å†ç”Ÿã§ãã‚‹æ•°ã€‚è² è·ãŒé«˜ã„ã®ã§1ã‚’æŒ‡å®š
     private static final int LINE_BUFFER_NUM = 1;
 
-    // ‰¹—Ê‚ğŠo‚¦‚Ä‚¨‚­
+    // éŸ³é‡ã‚’è¦šãˆã¦ãŠã
     private int volume[] = null;
 
-    // Ä¶—pƒoƒbƒtƒ@
+    // å†ç”Ÿç”¨ãƒãƒƒãƒ•ã‚¡
     private byte[] abData = new byte[EXTERNAL_BUFFER_SIZE];
 
-    // ƒtƒ@ƒCƒ‹‚ÌƒŠƒXƒg‚ğ•Û‚µ‚Ü‚·B
+    // ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒªã‚¹ãƒˆã‚’ä¿æŒã—ã¾ã™ã€‚
     private String fileNameList[] = null;
 
-    // ƒVƒ“ƒOƒ‹ƒgƒ“ƒCƒ“ƒXƒ^ƒ“ƒX
+    // ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
     private static StreamSoundManager instance = null;
 
-    // ƒvƒ‰ƒCƒx[ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^
+    // ãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
     private void StreamSoundManager()
     {
         resourceNum = 0;
     }
 
     /**
-     * @return ƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·
+     * @return ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™
      */
     public static StreamSoundManager getInstance()
     {
@@ -56,8 +56,8 @@ public class StreamSoundManager implements SoundManagerInterface
     }
 
     /**
-     * ‰Šú‰»BƒŠƒ\[ƒX‚ğ‚Ü‚Æ‚ß‚Äƒ[ƒh‚·‚é
-     * @param base_file_path “Ç‚İ‚Ş˜A”Ôƒtƒ@ƒCƒ‹–¼‚Ìw’è(xxx0.wav‚ÌAxxx‚Ì•”•ª)
+     * åˆæœŸåŒ–ã€‚ãƒªã‚½ãƒ¼ã‚¹ã‚’ã¾ã¨ã‚ã¦ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
+     * @param base_file_path èª­ã¿è¾¼ã‚€é€£ç•ªãƒ•ã‚¡ã‚¤ãƒ«åã®æŒ‡å®š(xxx0.wavã®ã€xxxã®éƒ¨åˆ†)
      */
     public void init(String base_file_path)
     {
@@ -70,7 +70,7 @@ public class StreamSoundManager implements SoundManagerInterface
         for (int i = 0; i < resourceNum; i++)
             fileNameList[i] = base_file_path + i + ".wav";
 
-        // •K—v‚ÈƒIƒuƒWƒFƒNƒg‚ğ¶¬
+        // å¿…è¦ãªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆ
         this.audioInputStream = new AudioInputStream[LINE_BUFFER_NUM];
         line = new SourceDataLine[LINE_BUFFER_NUM];
         this.loopFlag = new boolean[LINE_BUFFER_NUM];
@@ -81,10 +81,10 @@ public class StreamSoundManager implements SoundManagerInterface
     }
 
     /**
-     * ƒTƒEƒ“ƒh‚ğw’è‚µ‚½ƒ‰ƒCƒ“‚Éƒ[ƒh‚·‚é
+     * ã‚µã‚¦ãƒ³ãƒ‰ã‚’æŒ‡å®šã—ãŸãƒ©ã‚¤ãƒ³ã«ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
      *
-     * @param line_id ƒ‰ƒCƒ“‚Ìw’è
-     * @param snd_id ƒTƒEƒ“ƒh‚ÌIDw’è
+     * @param line_id ãƒ©ã‚¤ãƒ³ã®æŒ‡å®š
+     * @param snd_id ã‚µã‚¦ãƒ³ãƒ‰ã®IDæŒ‡å®š
      */
     private void loadAndPlaySound(int line_id, int snd_id)
     {
@@ -96,16 +96,16 @@ public class StreamSoundManager implements SoundManagerInterface
 
             AudioFormat audioFormat = audioInputStream[line_id].getFormat();
 
-            // ƒf[ƒ^ƒ‰ƒCƒ“‚Ìî•ñƒIƒuƒWƒFƒNƒg‚ğ¶¬‚µ‚Ü‚·
+            // ãƒ‡ãƒ¼ã‚¿ãƒ©ã‚¤ãƒ³ã®æƒ…å ±ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã—ã¾ã™
             DataLine.Info info = new DataLine.Info(SourceDataLine.class,
                     audioFormat);
-            // w’è‚³‚ê‚½ƒf[ƒ^ƒ‰ƒCƒ“î•ñ‚Éˆê’v‚·‚éƒ‰ƒCƒ“‚ğæ“¾‚µ‚Ü‚·
+            // æŒ‡å®šã•ã‚ŒãŸãƒ‡ãƒ¼ã‚¿ãƒ©ã‚¤ãƒ³æƒ…å ±ã«ä¸€è‡´ã™ã‚‹ãƒ©ã‚¤ãƒ³ã‚’å–å¾—ã—ã¾ã™
             line[line_id] = (SourceDataLine) AudioSystem.getLine(info);
-            // w’è‚³‚ê‚½ƒI[ƒfƒBƒIŒ`®‚Åƒ‰ƒCƒ“‚ğŠJ‚«‚Ü‚·
+            // æŒ‡å®šã•ã‚ŒãŸã‚ªãƒ¼ãƒ‡ã‚£ã‚ªå½¢å¼ã§ãƒ©ã‚¤ãƒ³ã‚’é–‹ãã¾ã™
             line[line_id].open(audioFormat);
-            // ƒ‰ƒCƒ“‚Å‚Ìƒf[ƒ^“üo—Í‚ğ‰Â”\‚É‚µ‚Ü‚·
+            // ãƒ©ã‚¤ãƒ³ã§ã®ãƒ‡ãƒ¼ã‚¿å…¥å‡ºåŠ›ã‚’å¯èƒ½ã«ã—ã¾ã™
             line[line_id].start();
-            // ‰¹—Ê‚ğƒZƒbƒg‚µ‚Ü‚·
+            // éŸ³é‡ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™
             this.changeVolume(line_id, volume[line_id]);
 
             this.bind[line_id] = snd_id;
@@ -119,9 +119,9 @@ public class StreamSoundManager implements SoundManagerInterface
     }
 
     /**
-     * ƒXƒgƒŠ[ƒ~ƒ“ƒOÄ¶‚È‚Ì‚Å@‚¿‚å‚­‚¿‚å‚­ŒÄ‚Ño‚µ‚Ä‚â‚é
+     * ã‚¹ãƒˆãƒªãƒ¼ãƒŸãƒ³ã‚°å†ç”Ÿãªã®ã§ã€€ã¡ã‚‡ãã¡ã‚‡ãå‘¼ã³å‡ºã—ã¦ã‚„ã‚‹
      *
-     * ŒÄ‚Ño‚µ‚ª“rØ‚ê‚é‚ÆAÄ¶‚à“rØ‚ê‚é‚Ì‚Å‚·B
+     * å‘¼ã³å‡ºã—ãŒé€”åˆ‡ã‚Œã‚‹ã¨ã€å†ç”Ÿã‚‚é€”åˆ‡ã‚Œã‚‹ã®ã§ã™ã€‚
      */
     public void update()
     {
@@ -132,12 +132,12 @@ public class StreamSoundManager implements SoundManagerInterface
             {
                 if (line[i] != null && line[i].isOpen())
                 {
-                    // ƒI[ƒfƒBƒIƒXƒgƒŠ[ƒ€‚©‚çƒf[ƒ^‚ğ“Ç‚İ‚İ‚Ü‚·
+                    // ã‚ªãƒ¼ãƒ‡ã‚£ã‚ªã‚¹ãƒˆãƒªãƒ¼ãƒ ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã¿ã¾ã™
                     nBytesRead = audioInputStream[i].read(abData, 0,
                             abData.length);
                     if (nBytesRead >= 0)
                     {
-                        // ƒI[ƒfƒBƒIƒf[ƒ^‚ğƒ~ƒLƒT[‚É‘‚«‚İ‚Ü‚·
+                        // ã‚ªãƒ¼ãƒ‡ã‚£ã‚ªãƒ‡ãƒ¼ã‚¿ã‚’ãƒŸã‚­ã‚µãƒ¼ã«æ›¸ãè¾¼ã¿ã¾ã™
                         line[i].write(abData, 0, nBytesRead);
                     }
                     else
@@ -161,9 +161,9 @@ public class StreamSoundManager implements SoundManagerInterface
     }
 
     /**
-     * ŠJ‚¢‚Ä‚¢‚éƒ‰ƒCƒ“ƒoƒbƒtƒ@[‚ÌID‚ğæ“¾
+     * é–‹ã„ã¦ã„ã‚‹ãƒ©ã‚¤ãƒ³ãƒãƒƒãƒ•ã‚¡ãƒ¼ã®IDã‚’å–å¾—
      *
-     * @return ŠJ‚¢‚Ä‚¢‚éƒ‰ƒCƒ“ƒoƒbƒtƒ@[‚ÌID‚ğ•Ô‚·B-1‚Ìê‡‘S‚Äg—p‚³‚ê‚Ä‚¢‚Ü‚·B
+     * @return é–‹ã„ã¦ã„ã‚‹ãƒ©ã‚¤ãƒ³ãƒãƒƒãƒ•ã‚¡ãƒ¼ã®IDã‚’è¿”ã™ã€‚-1ã®å ´åˆå…¨ã¦ä½¿ç”¨ã•ã‚Œã¦ã„ã¾ã™ã€‚
      */
     private int getFreeLineBuf()
     {
@@ -183,11 +183,11 @@ public class StreamSoundManager implements SoundManagerInterface
     }
 
     /**
-     * w’è‚µ‚½‰¹‚ğw’è‚µ‚½ƒ‰ƒCƒ“‚©‚ç–Â‚ç‚·
+     * æŒ‡å®šã—ãŸéŸ³ã‚’æŒ‡å®šã—ãŸãƒ©ã‚¤ãƒ³ã‹ã‚‰é³´ã‚‰ã™
      *
-     * @param line_id ƒ‰ƒCƒ“‚ÌID
-     * @param snd_id ‰¹‚ÌIDw’è
-     * @param loop ƒ‹[ƒv‚·‚é‚©‚Ç‚¤‚©‚ğw’è
+     * @param line_id ãƒ©ã‚¤ãƒ³ã®ID
+     * @param snd_id éŸ³ã®IDæŒ‡å®š
+     * @param loop ãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹ã©ã†ã‹ã‚’æŒ‡å®š
      */
     private void playSound(int line_id, int snd_id, boolean loop)
     {
@@ -210,10 +210,10 @@ public class StreamSoundManager implements SoundManagerInterface
     }
 
     /**
-     * w’è‚µ‚½‰¹‚ğ–Â‚ç‚·
+     * æŒ‡å®šã—ãŸéŸ³ã‚’é³´ã‚‰ã™
      *
-     * @param snd_id ‰¹‚ÌIDw’è
-     * @param loop ƒ‹[ƒv‚·‚é‚©‚Ç‚¤‚©‚ğw’è
+     * @param snd_id éŸ³ã®IDæŒ‡å®š
+     * @param loop ãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹ã©ã†ã‹ã‚’æŒ‡å®š
      */
     public void playSound(int snd_id, boolean loop)
     {
@@ -235,7 +235,7 @@ public class StreamSoundManager implements SoundManagerInterface
     }
 
     /**
-     * ‚±‚ÌƒIƒuƒWƒFƒNƒg‚ªŠÇ—‚µ‚Ä‚¢‚é‘S‚Ä‚ÌƒTƒEƒ“ƒhƒoƒbƒtƒ@‚ğ’â~‚³‚¹‚é
+     * ã“ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç®¡ç†ã—ã¦ã„ã‚‹å…¨ã¦ã®ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡ã‚’åœæ­¢ã•ã›ã‚‹
      */
     public void stopSound()
     {
@@ -244,9 +244,9 @@ public class StreamSoundManager implements SoundManagerInterface
     }
 
     /**
-     * w’è‚µ‚½ƒTƒEƒ“ƒhƒoƒbƒtƒ@‚Ì’â~
+     * æŒ‡å®šã—ãŸã‚µã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡ã®åœæ­¢
      *
-     * @param id ‰¹ID‚Ìw’è
+     * @param id éŸ³IDã®æŒ‡å®š
      */
     public void stopSound(int id)
     {
@@ -264,9 +264,9 @@ public class StreamSoundManager implements SoundManagerInterface
     }
 
     /**
-     * w’è‚µ‚½ƒTƒEƒ“ƒhƒoƒbƒtƒ@‚ğˆê’â~
+     * æŒ‡å®šã—ãŸã‚µã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡ã‚’ä¸€æ™‚åœæ­¢
      *
-     * @param id ‰¹‚Ìw’è
+     * @param id éŸ³ã®æŒ‡å®š
      */
     public void pauseSound(int id)
     {
@@ -281,10 +281,10 @@ public class StreamSoundManager implements SoundManagerInterface
     }
 
     /**
-     * ƒTƒEƒ“ƒhƒoƒbƒtƒ@‚Ì‰¹—Ê‚ğ•ÏX‚·‚é
+     * ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡ã®éŸ³é‡ã‚’å¤‰æ›´ã™ã‚‹
      *
-     * @param id ‰¹—Ê‚ğ•ÏX‚·‚éƒTƒEƒ“ƒhƒoƒbƒtƒ@‚ÌID
-     * @param param ‰¹‚Ì‘å‚«‚³‚ğw’è(0-100)
+     * @param id éŸ³é‡ã‚’å¤‰æ›´ã™ã‚‹ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡ã®ID
+     * @param param éŸ³ã®å¤§ãã•ã‚’æŒ‡å®š(0-100)
      */
     public void changeVolume(int id, int param)
     {
@@ -305,7 +305,7 @@ public class StreamSoundManager implements SoundManagerInterface
     }
 
     /**
-     * ‘S‚Ä‚ÌƒTƒEƒ“ƒhƒoƒbƒtƒ@‚ğˆê’â~‚·‚é
+     * å…¨ã¦ã®ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡ã‚’ä¸€æ™‚åœæ­¢ã™ã‚‹
      */
     public void pauseSound()
     {
@@ -314,7 +314,7 @@ public class StreamSoundManager implements SoundManagerInterface
     }
 
     /**
-     * ‘S‚Ä‚ÌƒTƒEƒ“ƒhƒoƒbƒtƒ@‚Ì‰¹—Ê•ÏX
+     * å…¨ã¦ã®ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ•ã‚¡ã®éŸ³é‡å¤‰æ›´
      */
     public void changeVolume(int vol)
     {

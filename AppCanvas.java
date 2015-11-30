@@ -5,10 +5,10 @@ import java.awt.*;
 import java.awt.event.*;
 
 /**
- * Canvas(•`‰æ‚ğŠÇ—‚·‚éƒNƒ‰ƒX)
+ * Canvas(æç”»ã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹)
  *
- * “à•”‚ÉƒXƒNƒŠ[ƒ“ƒoƒbƒtƒ@‚ğ‚Á‚Ä‚¢‚ÄAƒ_ƒuƒ‹ƒoƒbƒtƒ@ƒŠƒ“ƒO‚Æ‚©‚ğ‚·‚éƒNƒ‰ƒXB
- * ‚ ‚ÆAXVˆ—‚ğgameCanvas‚É‚½‚ç‚¢‚Ü‚í‚µ‚·‚é
+ * å†…éƒ¨ã«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ãƒãƒƒãƒ•ã‚¡ã‚’æŒã£ã¦ã„ã¦ã€ãƒ€ãƒ–ãƒ«ãƒãƒƒãƒ•ã‚¡ãƒªãƒ³ã‚°ã¨ã‹ã‚’ã™ã‚‹ã‚¯ãƒ©ã‚¹ã€‚
+ * ã‚ã¨ã€æ›´æ–°å‡¦ç†ã‚’gameCanvasã«ãŸã‚‰ã„ã¾ã‚ã—ã™ã‚‹
  */
 public class AppCanvas extends Canvas implements MouseMotionListener,
         MouseListener, KeyListener
@@ -16,17 +16,17 @@ public class AppCanvas extends Canvas implements MouseMotionListener,
 
     // serialVersionUID
     private static final long serialVersionUID = 1L;
-    // ƒIƒtƒXƒNƒŠ[ƒ“—p‚ÌImageƒIƒuƒWƒFƒNƒg
+    // ã‚ªãƒ•ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ç”¨ã®Imageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     private Image offImage = null;
-    // ƒIƒtƒXƒNƒŠ[ƒ“ƒoƒbƒtƒ@
+    // ã‚ªãƒ•ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ãƒãƒƒãƒ•ã‚¡
     private Graphics offScreen  = null;
-    // ƒL[“ü—Í‚Æ‚©‚ÌƒNƒ‰ƒX
+    // ã‚­ãƒ¼å…¥åŠ›ã¨ã‹ã®ã‚¯ãƒ©ã‚¹
     private InputManager inputManager = null;
     // GameCanvas
     private GameCanvas gameCanvas = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^ ƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰‚Ì“o˜^‚Æ‚©EEE
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ ã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©ã®ç™»éŒ²ã¨ã‹ãƒ»ãƒ»ãƒ»
      */
     public AppCanvas()
     {
@@ -42,7 +42,7 @@ public class AppCanvas extends Canvas implements MouseMotionListener,
     }
 
     /**
-     * XVˆ—‚ğ‚·‚×‚«‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·
+     * æ›´æ–°å‡¦ç†ã‚’ã™ã¹ãæ™‚ã«å‘¼ã³å‡ºã•ã‚Œã¾ã™
      */
     public void updateMessage()
     {
@@ -51,7 +51,7 @@ public class AppCanvas extends Canvas implements MouseMotionListener,
     }
 
     /**
-     * •`‰æˆ—‚ğ‚·‚×‚«‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * æç”»å‡¦ç†ã‚’ã™ã¹ãæ™‚ã«å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      */
     public void drawMessage()
     {
@@ -60,9 +60,9 @@ public class AppCanvas extends Canvas implements MouseMotionListener,
     }
 
     /**
-     * repaintŒÄ‚Ño‚µ‚½‚ç@‚±‚ê‚ªŒÄ‚Ño‚³‚ê‚é‚Í‚¸‚Å‚·EEE
+     * repaintå‘¼ã³å‡ºã—ãŸã‚‰ã€€ã“ã‚ŒãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã¯ãšã§ã™ãƒ»ãƒ»ãƒ»
      *
-     * @param g •`‰æ‘ÎÛ
+     * @param g æç”»å¯¾è±¡
      */
     public void update(Graphics g)
     {
@@ -70,9 +70,9 @@ public class AppCanvas extends Canvas implements MouseMotionListener,
     }
 
     /**
-     * •`‰æ‚ª•K—v‚É‚È‚Á‚½‚çŒÄ‚Ño‚³‚ê‚Ü‚·
+     * æç”»ãŒå¿…è¦ã«ãªã£ãŸã‚‰å‘¼ã³å‡ºã•ã‚Œã¾ã™
      *
-     * @param g •`‰æ‘ÎÛ
+     * @param g æç”»å¯¾è±¡
      */
     public void paint(Graphics g)
     {
@@ -87,16 +87,16 @@ public class AppCanvas extends Canvas implements MouseMotionListener,
     }
 
     /**
-     * ƒL[‚ª‰Ÿ‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·
+     * ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸã¨ãã«å‘¼ã³å‡ºã•ã‚Œã¾ã™
      *
-     * @param e ƒL[ƒCƒxƒ“ƒgî•ñ
+     * @param e ã‚­ãƒ¼ã‚¤ãƒ™ãƒ³ãƒˆæƒ…å ±
      */
     public synchronized void keyPressed(KeyEvent e)
     {
         int key = e.getKeyCode();
         if (key == KeyEvent.VK_ESCAPE)
-        { // ESC‚ÅƒŠƒZƒbƒg
-            if (gameCanvas.showYesNoDialog("ƒQ[ƒ€‚ğƒŠƒZƒbƒg‚µ‚Ü‚·‚©H"))
+        { // ESCã§ãƒªã‚»ãƒƒãƒˆ
+            if (gameCanvas.showYesNoDialog("ã‚²ãƒ¼ãƒ ã‚’ãƒªã‚»ãƒƒãƒˆã—ã¾ã™ã‹ï¼Ÿ"))
             {
                 gameCanvas.resetGame();
                 gameCanvas.resetGameInstance(new Game());
@@ -107,9 +107,9 @@ public class AppCanvas extends Canvas implements MouseMotionListener,
     }
 
     /**
-     * ƒL[‚ª—£‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·
+     * ã‚­ãƒ¼ãŒé›¢ã•ã‚ŒãŸã¨ãã«å‘¼ã³å‡ºã•ã‚Œã¾ã™
      *
-     * @param e ƒL[ƒCƒxƒ“ƒgî•ñ
+     * @param e ã‚­ãƒ¼ã‚¤ãƒ™ãƒ³ãƒˆæƒ…å ±
      */
     public synchronized void keyReleased(KeyEvent e)
     {
@@ -117,18 +117,18 @@ public class AppCanvas extends Canvas implements MouseMotionListener,
     }
 
     /**
-     * ƒL[‚ªƒ^ƒCƒv‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·
+     * ã‚­ãƒ¼ãŒã‚¿ã‚¤ãƒ—ã•ã‚ŒãŸã¨ãã«å‘¼ã³å‡ºã•ã‚Œã¾ã™
      *
-     * @param e ƒL[ƒCƒxƒ“ƒgî•ñ
+     * @param e ã‚­ãƒ¼ã‚¤ãƒ™ãƒ³ãƒˆæƒ…å ±
      */
     public void keyTyped(KeyEvent e)
     {
     }
 
     /**
-     * ƒ}ƒEƒX‚ª‰æ–Ê‚É“ü‚Á‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚éH
+     * ãƒã‚¦ã‚¹ãŒç”»é¢ã«å…¥ã£ãŸã¨ãã«å‘¼ã³å‡ºã•ã‚Œã‚‹ï¼Ÿ
      *
-     * @param e ƒ}ƒEƒXƒCƒxƒ“ƒg
+     * @param e ãƒã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public void mouseEntered(MouseEvent e)
     {
@@ -136,9 +136,9 @@ public class AppCanvas extends Canvas implements MouseMotionListener,
     }
 
     /**
-     * ƒ}ƒEƒX‚ª‰æ–Ê‚©‚ço‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚éH
+     * ãƒã‚¦ã‚¹ãŒç”»é¢ã‹ã‚‰å‡ºãŸã¨ãã«å‘¼ã³å‡ºã•ã‚Œã‚‹ï¼Ÿ
      *
-     * @param e ƒ}ƒEƒXƒCƒxƒ“ƒg
+     * @param e ãƒã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public void mouseExited(MouseEvent e)
     {
@@ -146,9 +146,9 @@ public class AppCanvas extends Canvas implements MouseMotionListener,
     }
 
     /**
-     * ƒ}ƒEƒX‚ªƒNƒŠƒbƒN‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚éH
+     * ãƒã‚¦ã‚¹ãŒã‚¯ãƒªãƒƒã‚¯ã¨ãã«å‘¼ã³å‡ºã•ã‚Œã‚‹ï¼Ÿ
      *
-     * @param e ƒ}ƒEƒXƒCƒxƒ“ƒg
+     * @param e ãƒã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public void mouseClicked(MouseEvent e)
     {
@@ -156,9 +156,9 @@ public class AppCanvas extends Canvas implements MouseMotionListener,
     }
 
     /**
-     * ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚Æ‚«ŒÄ‚Ño‚³‚ê‚é
+     * ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸã¨ãå‘¼ã³å‡ºã•ã‚Œã‚‹
      *
-     * @param e ƒ}ƒEƒXƒCƒxƒ“ƒg
+     * @param e ãƒã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public void mousePressed(MouseEvent e)
     {
@@ -166,9 +166,9 @@ public class AppCanvas extends Canvas implements MouseMotionListener,
     }
 
     /**
-     * ƒ}ƒEƒX‚Ìƒ{ƒ^ƒ“‚ª—£‚³‚ê‚½‚Æ‚«ŒÄ‚Ño‚³‚ê‚é
+     * ãƒã‚¦ã‚¹ã®ãƒœã‚¿ãƒ³ãŒé›¢ã•ã‚ŒãŸã¨ãå‘¼ã³å‡ºã•ã‚Œã‚‹
      *
-     * @param e ƒ}ƒEƒXƒCƒxƒ“ƒg
+     * @param e ãƒã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public void mouseReleased(MouseEvent e)
     {
@@ -176,9 +176,9 @@ public class AppCanvas extends Canvas implements MouseMotionListener,
     }
 
     /**
-     * ƒ}ƒEƒXƒhƒ‰ƒbƒO‚³‚ê‚½‚Æ‚«ŒÄ‚Ño‚³‚ê‚é
+     * ãƒã‚¦ã‚¹ãƒ‰ãƒ©ãƒƒã‚°ã•ã‚ŒãŸã¨ãå‘¼ã³å‡ºã•ã‚Œã‚‹
      *
-     * @param e ƒ}ƒEƒXƒCƒxƒ“ƒg
+     * @param e ãƒã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public void mouseDragged(MouseEvent e)
     {
@@ -186,9 +186,9 @@ public class AppCanvas extends Canvas implements MouseMotionListener,
     }
 
     /**
-     * ƒ}ƒEƒX‚ª“®‚¢‚½‚Æ‚«ŒÄ‚Ño‚³‚ê‚é
+     * ãƒã‚¦ã‚¹ãŒå‹•ã„ãŸã¨ãå‘¼ã³å‡ºã•ã‚Œã‚‹
      *
-     * @param e ƒ}ƒEƒXƒCƒxƒ“ƒg
+     * @param e ãƒã‚¦ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆ
      */
     public void mouseMoved(MouseEvent e)
     {

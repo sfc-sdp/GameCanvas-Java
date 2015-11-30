@@ -3,32 +3,32 @@ package gameCanvasUtil;
 import java.io.*;
 
 /**
- * ƒZ[ƒuƒf[ƒ^ƒ}ƒl[ƒWƒƒ
+ * ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ãƒãƒãƒ¼ã‚¸ãƒ£
  *
- * intŒ^”z—ñ‚ÌƒZ[ƒuƒf[ƒ^‚ğƒoƒCƒg—ñ‚Æ‚µ‚Äƒtƒ@ƒCƒ‹‚É‘‚«o‚·/“Ç‚İ‚İ‚ğs‚¤
+ * intå‹é…åˆ—ã®ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã‚’ãƒã‚¤ãƒˆåˆ—ã¨ã—ã¦ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãå‡ºã™/èª­ã¿è¾¼ã¿ã‚’è¡Œã†
  */
 public class SavedataManager
 {
-    // ƒZ[ƒuƒf[ƒ^‚ÌƒTƒCƒY
+    // ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã®ã‚µã‚¤ã‚º
     private static final int SAVE_DATA_SIZE = 1024;
 
-    // /ƒZ[ƒuƒf[ƒ^—pƒoƒbƒtƒ@
+    // /ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ç”¨ãƒãƒƒãƒ•ã‚¡
     private int savedata[] = null;
 
-    // ƒZ[ƒuƒf[ƒ^‚ª‘‚«Š·‚¦‚ç‚ê‚½‚©‚Ç‚¤‚©
+    // ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ãŒæ›¸ãæ›ãˆã‚‰ã‚ŒãŸã‹ã©ã†ã‹
     private boolean savedataChanged = false;
 
-    // ƒvƒ‰ƒCƒx[ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^
+    // ãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
     private void SavedataManager()
     {
         savedataChanged = false;
     }
 
-    // ƒVƒ“ƒOƒ‹ƒgƒ“ƒCƒ“ƒXƒ^ƒ“ƒX
+    // ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
     private static SavedataManager instance = null;
 
     /**
-     * @return ƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·
+     * @return ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™
      */
     public static SavedataManager getInstance()
     {
@@ -38,7 +38,7 @@ public class SavedataManager
     }
 
     /**
-     * ƒZ[ƒuƒf[ƒ^‚ğƒtƒ@ƒCƒ‹‚É‘‚«o‚·
+     * ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãå‡ºã™
      */
     public void writeRecord()
     {
@@ -51,7 +51,7 @@ public class SavedataManager
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹‚©‚çƒZ[ƒuƒf[ƒ^‚ğ“Ç‚İ‚Ş
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€
      */
     public void readRecord()
     {
@@ -68,10 +68,10 @@ public class SavedataManager
     }
 
     /**
-     * “Ç‚İ‚ñ‚¾ƒZ[ƒuƒf[ƒ^‚©‚çint’l‚ğ“Ç‚İo‚·
+     * èª­ã¿è¾¼ã‚“ã ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã‹ã‚‰intå€¤ã‚’èª­ã¿å‡ºã™
      *
-     * @param idx ƒf[ƒ^‚ÌƒCƒ“ƒfƒbƒNƒX‚ğw’è
-     * @return w’è‚³‚ê‚½ˆÊ’u‚©‚çƒf[ƒ^‚ğ“Ç‚İo‚µ‚Ä•Ô‚·
+     * @param idx ãƒ‡ãƒ¼ã‚¿ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æŒ‡å®š
+     * @return æŒ‡å®šã•ã‚ŒãŸä½ç½®ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿å‡ºã—ã¦è¿”ã™
      */
     public int load(int idx)
     {
@@ -79,10 +79,10 @@ public class SavedataManager
     }
 
     /**
-     * ƒZ[ƒuƒf[ƒ^ƒoƒbƒtƒ@‚Éƒf[ƒ^‚ğƒZƒbƒg‚·‚é
+     * ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ãƒãƒƒãƒ•ã‚¡ã«ãƒ‡ãƒ¼ã‚¿ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
      *
-     * @param idx ƒf[ƒ^‚ÌƒCƒ“ƒfƒbƒNƒX‚ğw’è
-     * @param param ƒZ[ƒuƒf[ƒ^‚É‘‚«‚Şint’l
+     * @param idx ãƒ‡ãƒ¼ã‚¿ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æŒ‡å®š
+     * @param param ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã«æ›¸ãè¾¼ã‚€intå€¤
      */
     public void save(int idx, int param)
     {
@@ -91,11 +91,11 @@ public class SavedataManager
     }
 
     /**
-     * ˆø”data‚ğƒtƒ@ƒCƒ‹‚É‘‚«‚Ş
+     * å¼•æ•°dataã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã‚€
      *
-     * @param file_name ƒtƒ@ƒCƒ‹–¼
-     * @param data ƒf[ƒ^‚Ìw’è
-     * @return ƒtƒ@ƒCƒ‹‘‚«‚İ‚É¬Œ÷‚µ‚½‚©‚Ç‚¤‚©
+     * @param file_name ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @param data ãƒ‡ãƒ¼ã‚¿ã®æŒ‡å®š
+     * @return ãƒ•ã‚¡ã‚¤ãƒ«æ›¸ãè¾¼ã¿ã«æˆåŠŸã—ãŸã‹ã©ã†ã‹
      */
     public boolean writeByteArray(String file_name, byte data[])
     {
@@ -121,10 +121,10 @@ public class SavedataManager
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚ñ‚ÅAƒoƒCƒg”z—ñ‚Æ‚µ‚Ä•Ô‚·
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚“ã§ã€ãƒã‚¤ãƒˆé…åˆ—ã¨ã—ã¦è¿”ã™
      *
-     * @param file_name ƒtƒ@ƒCƒ‹–¼
-     * @return “Ç‚İ‚ñ‚¾ƒf[ƒ^‚ğ•Ô‚·
+     * @param file_name ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @return èª­ã¿è¾¼ã‚“ã ãƒ‡ãƒ¼ã‚¿ã‚’è¿”ã™
      */
     private byte[] readByteArray(String file_name)
     {
@@ -141,11 +141,11 @@ public class SavedataManager
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚ñ‚ÅAˆø”‚ÌƒoƒCƒg”z—ñ‚ÉŠi”[‚µ‚Ä‚¢‚­
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚“ã§ã€å¼•æ•°ã®ãƒã‚¤ãƒˆé…åˆ—ã«æ ¼ç´ã—ã¦ã„ã
      *
-     * @param file_name ƒtƒ@ƒCƒ‹–¼
-     * @param data ƒf[ƒ^‚ÌŠi”[æ
-     * @return ƒtƒ@ƒCƒ‹“Ç‚İ‚İ‚É¬Œ÷‚·‚ê‚Îtrue‚ğ•Ô‚·
+     * @param file_name ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @param data ãƒ‡ãƒ¼ã‚¿ã®æ ¼ç´å…ˆ
+     * @return ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ã«æˆåŠŸã™ã‚Œã°trueã‚’è¿”ã™
      */
     private boolean readByteArray(String file_name, byte data[])
     {
@@ -171,11 +171,11 @@ public class SavedataManager
     }
 
     /**
-     * ƒoƒCƒg”z—ñ‚Ìw’èˆÊ’u‚Éint’l‚ğ‘‚«‚Ş
+     * ãƒã‚¤ãƒˆé…åˆ—ã®æŒ‡å®šä½ç½®ã«intå€¤ã‚’æ›¸ãè¾¼ã‚€
      *
-     * @param dest ”z—ñ‚ğ“Ë‚Á‚Şæ
-     * @param offset ”z—ñ‚ğ“Ë‚Á‚ŞƒIƒtƒZƒbƒg
-     * @param src “Ë‚Á‚Ş’l
+     * @param dest é…åˆ—ã‚’çªã£è¾¼ã‚€å…ˆ
+     * @param offset é…åˆ—ã‚’çªã£è¾¼ã‚€ã‚ªãƒ•ã‚»ãƒƒãƒˆ
+     * @param src çªã£è¾¼ã‚€å€¤
      */
     private void int2byte(byte dest[], int offset, int src)
     {
@@ -186,11 +186,11 @@ public class SavedataManager
     }
 
     /**
-     * ƒoƒCƒg”z—ñ‚Ìw’èˆÊ’u‚©‚çint’l‚ğ’Šo
+     * ãƒã‚¤ãƒˆé…åˆ—ã®æŒ‡å®šä½ç½®ã‹ã‚‰intå€¤ã‚’æŠ½å‡º
      *
-     * @param src ”²‚«o‚µŒ³‚Ì”z—ñ
-     * @param offset ”²‚«o‚·ƒIƒtƒZƒbƒg
-     * @return ’Šo‚µ‚½int’l
+     * @param src æŠœãå‡ºã—å…ƒã®é…åˆ—
+     * @param offset æŠœãå‡ºã™ã‚ªãƒ•ã‚»ãƒƒãƒˆ
+     * @return æŠ½å‡ºã—ãŸintå€¤
      */
     private int byte2int(byte src[], int offset)
     {
@@ -201,10 +201,10 @@ public class SavedataManager
     }
 
     /**
-     * int‚Ì”z—ñ‚©‚çbyte‚Ì”z—ñ‚Ö•ÏŠ·‚µ‚Ü‚·
+     * intã®é…åˆ—ã‹ã‚‰byteã®é…åˆ—ã¸å¤‰æ›ã—ã¾ã™
      *
-     * @param src byte”z—ñ‚É•ÏŠ·‚µ‚½‚¢int‚Ì”z—ñ
-     * @return ˆø”src‚©‚ç•ÏŠ·‚µ‚½byte”z—ñ
+     * @param src byteé…åˆ—ã«å¤‰æ›ã—ãŸã„intã®é…åˆ—
+     * @return å¼•æ•°srcã‹ã‚‰å¤‰æ›ã—ãŸbyteé…åˆ—
      */
     private byte[] intarr2bytearr(int src[])
     {
@@ -217,10 +217,10 @@ public class SavedataManager
     }
 
     /**
-     * byte‚Ì”z—ñ‚©‚çint‚Ì”z—ñ‚Ö•ÏŠ·‚µ‚Ü‚·
+     * byteã®é…åˆ—ã‹ã‚‰intã®é…åˆ—ã¸å¤‰æ›ã—ã¾ã™
      *
-     * @param src int”z—ñ‚É•ÏŠ·‚µ‚½‚¢byte‚Ì”z—ñ
-     * @return ˆø”byte‚©‚ç•ÏŠ·‚µ‚½int”z—ñ
+     * @param src inté…åˆ—ã«å¤‰æ›ã—ãŸã„byteã®é…åˆ—
+     * @return å¼•æ•°byteã‹ã‚‰å¤‰æ›ã—ãŸinté…åˆ—
      */
     private int[] bytearr2intarr(byte src[])
     {
