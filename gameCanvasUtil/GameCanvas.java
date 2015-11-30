@@ -17,8 +17,8 @@ import gameCanvasUtil.Resource.SoundManager;
 import gameCanvasUtil.Resource.SoundManagerInterface;
 
 /**
- * @author kuro@ shift>>sega
- *         fujieda@ shift>>ntt
+ * @author kuro@ shiftからsega
+ *         fujieda@ shiftからntt
  *
  * さまざまな機能を取りまとめたクラス
  *
@@ -430,7 +430,7 @@ public class GameCanvas
      * @param y 画像の中心Ｙ座標です
      * @param xsize 横にどのくらい拡大するか？100%を基準にしてます。(xsizeが100の時、等倍。200なら2倍の大きさ)
      * @param ysize 縦にどのくらい拡大するか？100%を基準にしてます。(ysizeが100の時、等倍。200なら2倍の大きさ)
-     * @param angle 画像を何度回転させるか？(角度で指定)not弧度法
+     * @param rotate 画像を何度回転させるか？(角度で指定)not弧度法
      */
     public void drawScaledRotateImage(int id, int x, int y, int xsize,
             int ysize, double rotate)
@@ -448,7 +448,7 @@ public class GameCanvas
      * @param y 画像の中心Ｙ座標です
      * @param xsize 横にどのくらい拡大するか？100%を基準にしてます。(xsizeが100の時、等倍。200なら2倍の大きさ)
      * @param ysize 縦にどのくらい拡大するか？100%を基準にしてます。(ysizeが100の時、等倍。200なら2倍の大きさ)
-     * @param angle 画像を何度回転させるか？(角度で指定)not弧度法
+     * @param rotate 画像を何度回転させるか？(角度で指定)not弧度法
      * @param px 画像の回転の中心位置のＸ座標
      * @param py 画像の回転の中心位置のＹ座標
      */
